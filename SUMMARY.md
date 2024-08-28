@@ -11,11 +11,11 @@
 * [🔍 Audits](overview/audits.md)
 * [🏗️ Integration Process](overview/integration-process.md)
 * [🦉 Core Logic](core-logic/README.md)
-  * [Pool overview](core-logic/pool-overview.md)
+  * [🧺 Pool overview](core-logic/pool-overview.md)
   * [Swap calculation](core-logic/swap-calculation.md)
-  * [Liquidity and positions](core-logic/liquidity-and-positions.md)
-  * [Ticks](core-logic/ticks.md)
-  * [Reserves](core-logic/reserves.md)
+  * [💰 Liquidity and positions](core-logic/liquidity-and-positions.md)
+  * [📏 Ticks](core-logic/ticks.md)
+  * [🏦 Reserves](core-logic/reserves.md)
 
 ## Algebra V1 / Technical Reference
 

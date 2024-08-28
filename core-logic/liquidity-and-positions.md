@@ -1,4 +1,4 @@
-# Liquidity and positions
+# 💰 Liquidity and positions
 
 Relevant and important files:
 

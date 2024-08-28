@@ -1,4 +1,4 @@
-# Reserves
+# 🏦 Reserves
 
 Relevant and important files:
 
@@ -15,15 +15,13 @@ $$reserveToken1 = balanceToken1$$
 
 Synchronization of reserves and balances after interaction with the pool occurs based on the expected change in balances - using the number of tokens sent or requested by the pool. For example, sending tokens to a user ($$tokenAmount^{\{0, 1\}}$$) causes the next change in the corresponding reserve:
 
-$$reserveToken^{\{0,1\}}_{new} = reserveToken^{\{0,1\}}_{old}  - tokenAmount^{\{0,1\}}$$
+$$reserveToken^{\{0,1\}}_{new} = reserveToken^{\{0,1\}}_{old} - tokenAmount^{\{0,1\}}$$
 
 On the other hand, when $$tokenAmount^{\{0, 1\}}$$ is received, the reserve is increased accordingly:
 
-$$reserveToken^{\{0,1\}}_{new} = reserveToken^{\{0,1\}}_{old}  + tokenAmount^{\{0,1\}}$$
+$$reserveToken^{\{0,1\}}_{new} = reserveToken^{\{0,1\}}_{old} + tokenAmount^{\{0,1\}}$$
 
 Thus, the value of the reserve at any given moment reflects the number of tokens the pool **expects** to have on its balance.
-
-
 
 ### Reserves synchronization
 
@@ -33,13 +31,9 @@ $$token0Delta = balanceToken0 - reserveToken0$$
 
 $$token1Delta = balanceToken1 - reserveToken1$$
 
-
-
 $$totalFeeGrowth0_{new} = totalFeeGrowth_{old} + token0Delta / L$$
 
 $$totalFeeGrowth1_{new} = totalFeeGrowth_{old} + token1Delta / L$$
-
-
 
 If current liquidity is zero ($$L = 0$$), no synchronization occurs until liquidity becomes non-zero.
 
@@ -49,8 +43,6 @@ In addition, tokens directly sent to the pool's contract for any reason will not
 
 Another advantage of the reserve mechanism, is that it provides the ability to flashloan regardless of current liquidity - it is possible to use flashloan even if the current liquidity in the pool is zero, but there is some amount of tokens on the balance.
 
-
-
 ### Limits
 
 The reserve value for each of the tokens is limited to the maximum value of data type `uint128`: $$2^{128} - 1$$. This restriction allows us to minimize the cost of gas when interacting with the pool.
@@ -59,11 +51,9 @@ However, this restriction means that Algebra Integral does not guarantee full po
 
 In case the maximum allowed reserve is exceeded for external reasons (sending tokens directly to the pool or overpaying in a flashloan), all excess tokens will be sent to AlgebraCommunityVault as communityFee.
 
-
-
 ### Pending communityFee
 
-To minimize the number of unnecessary transfers, communityFee is not sent to the AlgebraCommunityVault at each swap. Instead, the accumulated part of the commissions is recorded in the variables `communityFeePending{0,1}`.&#x20;
+To minimize the number of unnecessary transfers, communityFee is not sent to the AlgebraCommunityVault at each swap. Instead, the accumulated part of the commissions is recorded in the variables `communityFeePending{0,1}`.
 
 The communityFee is sent at a set frequency (`COMMUNITY_FEE_TRANSFER_FREQUENCY`), as well as in case of overflow of values `communityFeePending{0,1}`.
 

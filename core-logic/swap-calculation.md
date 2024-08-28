@@ -1,3 +1,7 @@
+---
+icon: shuffle
+---
+
 # Swap calculation
 
 Relevant and important files:

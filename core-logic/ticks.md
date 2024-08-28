@@ -1,4 +1,4 @@
-# Ticks
+# 📏 Ticks
 
 Relevant and important files:
 
