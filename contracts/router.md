@@ -33,46 +33,41 @@ So if message reaches the pool it means some criterias are satisfied.
 | 1  | 268 | 755 | 
 
 # Interface 
-## getChildContracts
+## getIsLocked
  
-(cell, cell, cell) getChildContracts ()
+(int) getIsLocked ()
  
  
   This function returns if router is locked
 
   * @return0 1 bit unsigned value 0 - not locked, 1 - locked
--}
-int getIsLocked() method_id {
-    load_storage();
-    return (router::is_locked);
-}
-
-{- %GET%
+ 
+## getAdminAddress
+ 
+(slice) getAdminAddress ()
+ 
+ 
   returns router admin address
 
   * @return0 router admin address
--}
-slice getAdminAddress() method_id {
-    load_storage();
-    return (router::admin_address);
-}
-
-{- %GET%
+ 
+## getPoolAddress
+ 
+(slice) getPoolAddress (slice jetton_wallet0, slice jetton_wallet1)
+ 
+ 
   returns pool address for two given jetton_wallets beloning to the router 
 
   * @param jetton_wallet0  Address of the jetton 0 wallet belonging to router
   * @param jetton_wallet1  Address of the jetton 1 wallet belonging to router
 
   * @return0 pool address
--}
-
-slice getPoolAddress(slice jetton_wallet0, slice jetton_wallet1) method_id {
-    load_storage();
-    cell state_init = calculate_pool_state_init(jetton_wallet0, jetton_wallet1, router::poolv3_code, router::accountv3_code, router::position_nftv3_code );
-    return calculate_address(state_init, 0);
-}
-
-{- %GET%
+ 
+## getChildContracts
+ 
+(cell, cell, cell) getChildContracts ()
+ 
+ 
   returns code of the child contracts *deprecated*
 
   * @return0 code of the pool contract
