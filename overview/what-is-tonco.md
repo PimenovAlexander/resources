@@ -1,4 +1,4 @@
-# 💡What is Algebra x TONCO?
+# 💡 What is TONCO
 
 Algebra: Empowering Decentralized Exchanges (DEXes) with Excellence
 

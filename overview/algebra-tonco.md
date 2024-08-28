@@ -1,4 +1,4 @@
-# 🧑‍🔬Algebra TONCO
+# 🧑‍🔬 Algebra TONCO
 
 ## Architectural benefits and gas efficiency
 

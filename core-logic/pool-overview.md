@@ -2,13 +2,13 @@
 
 ### One pool for each pair
 
-The liquidity pool is a key component of the Algebra Integral protocol. This smart contract implements the most important functions that provide swaps, liquidity management, flashloans and other protocol functionality.&#x20;
+The liquidity pool is a key component of the Algebra Integral protocol. This smart contract implements the most important functions that provide swaps, liquidity management, flashloans and other protocol functionality.
 
 For each pair of tokens in the Algebra protocol, one unique pool is created. This approach minimises liquidity fragmentation, simplifies the construction of optimal routes for swaps, and simplifies liquidity management for liquidity providers.
 
 <div data-full-width="false">
 
-<figure><img src="../.gitbook/assets/Algebra factory.drawio (1) (1).png" alt="" width="375"><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/Algebra%20factory.drawio%20(1)%20(1).png" alt="" width="375"><figcaption></figcaption></figure>
 
 </div>
 
@@ -26,7 +26,7 @@ The liquidity pool expects the token to be ERC20 standard. In addition, there ar
 
 ### Pool Description
 
-The main purpose of the pool is to enable swaps using concentrated liquidity.&#x20;
+The main purpose of the pool is to enable swaps using concentrated liquidity.
 
 Below is a high-level description of the main functionality implemented in the pool.
 
@@ -65,9 +65,9 @@ It is important to note that not only active liquidity is available for receivin
 
 #### Pool Customization
 
-Each Algebra Integral pool has a number of parameters that can be changed by the protocol team, DAO or authorized persons. Persons authorized to change pool parameters (see [the AlgebraFactory and roles article](algebrafactory-and-roles.md) for more information on roles and access control):
+Each Algebra Integral pool has a number of parameters that can be changed by the protocol team, DAO or authorized persons. Persons authorized to change pool parameters (see [the AlgebraFactory and roles article](broken-reference) for more information on roles and access control):
 
-1. AlgebraFactory owner&#x20;
+1. AlgebraFactory owner
 2. owner of the `POOLS_ADMINISTRATOR` role
 
 Customizable parameters:
@@ -75,5 +75,5 @@ Customizable parameters:
 * `communityFee` - share of the collected commissions that is sent to AlgebraCommunityVault for the needs of the protocol.
 * `tickSpacing` - limit on ticks that can be used as boundaries of the liquidity position. New liquidity can only be added to positions whose upper and lower ticks are divided wholly by `tickSpacing`. This means that if `tickSpacing` is equal to 60, then only every 60th tick (... -60, 0, 60 ...) can be used as a new liquidity position boundary.
 * `plugin` - it is possible to replace the plugin that is connected to the pool, connect a new one or disable the plugin altogether.
-* `pluginConfig` - customize plugin configuration, which defines how the pool should interact with the plugin. More details in [the article about plugins](plugins.md).
-* `fee` - if dynamic commission mode is not enabled (see [the article about plugins](plugins.md)), the commission for swaps in the pool can be changed manually.
+* `pluginConfig` - customize plugin configuration, which defines how the pool should interact with the plugin. More details in [the article about plugins](broken-reference).
+* `fee` - if dynamic commission mode is not enabled (see [the article about plugins](broken-reference)), the commission for swaps in the pool can be changed manually.

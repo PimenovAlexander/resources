@@ -7,20 +7,15 @@
 * [📚 Glossary](overview/glossary.md)
 * [🪙 Tokenomics](overview/tokenomics.md)
 * [📱 Social Media & Links](overview/social-media-links.md)
-* [   Intro](overview/intro.md)
+* [ℹ️ Intro](overview/intro.md)
 * [🔍 Audits](overview/audits.md)
 * [🏗️ Integration Process](overview/integration-process.md)
-
-* [🖲️ Core Logic](core-logic/README.md)
+* [🦉 Core Logic](core-logic/README.md)
   * [Pool overview](core-logic/pool-overview.md)
   * [Swap calculation](core-logic/swap-calculation.md)
   * [Liquidity and positions](core-logic/liquidity-and-positions.md)
-  * [Ticks](core-logic/ticks/README.md)
-    * [Ticks search tree](core-logic/ticks/ticks-search-tree.md)
+  * [Ticks](core-logic/ticks.md)
   * [Reserves](core-logic/reserves.md)
-  * [Flash](core-logic/flash.md)
-  * [Plugins](core-logic/plugins.md)
-  * [AlgebraFactory and roles](core-logic/algebrafactory-and-roles.md)
 
 ## Algebra V1 / Technical Reference
 

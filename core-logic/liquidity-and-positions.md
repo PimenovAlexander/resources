@@ -2,9 +2,7 @@
 
 Relevant and important files:
 
-* base/Positions.sol
-* libraries/LiquidityMath.sol
-* libraries/TickManagement.sol
+* **TBD**
 
 ### Definition of liquidity
 
@@ -16,13 +14,11 @@ $$L$$ - liquidity.
 
 A change in the current price in the pool (via swaps) entails the movement of tokens from / to the pool, with the number of tokens depending on a coefficient called liquidity. Formulas linking token deltas, price change and liquidity value:
 
-$$\Delta \sqrt P =  \Delta Y / L$$
+$$\Delta \sqrt P = \Delta Y / L$$
 
 $$\Delta 1 / \sqrt P = \Delta X / L$$
 
-Thus, the liquidity $$L$$ can be defined as a coefficient that determines the "speed" of price change when tokens are swapped. Change of $$\sqrt P$$ (or $$1 / \sqrt P$$,  depending on the direction of swap) is inversely proportional to liquidity. This means that the greater the liquidity, the more tokens need to be swapped to move the price by a given value.
-
-
+Thus, the liquidity $$L$$ can be defined as a coefficient that determines the "speed" of price change when tokens are swapped. Change of $$\sqrt P$$ (or $$1 / \sqrt P$$, depending on the direction of swap) is inversely proportional to liquidity. This means that the greater the liquidity, the more tokens need to be swapped to move the price by a given value.
 
 ### Liquidity position
 
@@ -35,7 +31,7 @@ A liquidity position in Algebra Integral is an entity defined by the following p
 3. The upper tick is the tick corresponding to the highest price at which the liquidity of this position can be used
 4. $$\Delta L$$ - liquidity value associated with this position
 
-The liquidity value associated with the position $$\Delta L$$ adds to the global liquidity value when the position becomes active (price inside the specified tick range) and subtracted from the global liquidity value when the position becomes inactive (price outside the specified tick range). These changes take place during the [swap](swap-calculation.md) on the crossing of position-related [ticks](ticks/).
+The liquidity value associated with the position $$\Delta L$$ adds to the global liquidity value when the position becomes active (price inside the specified tick range) and subtracted from the global liquidity value when the position becomes inactive (price outside the specified tick range). These changes take place during the [swap](swap-calculation.md) on the crossing of position-related [ticks](ticks.md).
 
 Thus, the value $$\Delta L$$ must ensure the fulfillment of the formulas from the [liquidity definition](liquidity-and-positions.md#definition-of-liquidity) section on the price range defined by the upper and lower tick of the position. Then the correlation between the number of tokens and $$\Delta L$$ can be obtained as follows. Let:
 
@@ -55,7 +51,7 @@ This means that a liquidity position must, on the one hand, provide enough token
 
 $$\Delta X = - (1 / \sqrt P_{top} - 1 / \sqrt P_{current}) * \Delta L$$
 
-$$\Delta Y = - (\sqrt P_{bottom} -  \sqrt P_{current}) * \Delta L$$
+$$\Delta Y = - (\sqrt P_{bottom} - \sqrt P_{current}) * \Delta L$$
 
 If$$\sqrt P_{current}$$ is not inside the position's price range, the amount of tokens associated with the position must cover price movement in one direction only (depending on the position of the current price).
 
@@ -75,11 +71,7 @@ Thus, when creating a position with the given $$\Delta L$$, $$\sqrt P_{top}$$, $
 
 On the other hand, when withdrawing liquidity, the user should receive$$\Delta X$$token0 and $$\Delta Y$$token1, also calculated using the same formulas considering the current price and the change in $$\Delta L$$.
 
-
-
 ### Fee distribution between liquidity positions
-
-
 
 For [swaps](swap-calculation.md), the pool deducts a fee that is allocated to the currently active liquidity positions (positions whose liquidity is used for the swap).
 
@@ -93,7 +85,7 @@ where $$F^{\{x, y\}}_{amount}$$ - the collected amount of fees in token0 or toke
 
 During swap, each iteration of the main loop holds the commission in the input token and increments the value of the corresponding accumulator.
 
-Thanks to this mechanism, it is easy to calculate the share of fees due to each liquidity position. With the help of the ticks mechanism, it is possible to know at any moment what parts of accumulators were added at the moment when the price was between two given ticks. The definition of accumulator increments within the tick range is described in more detail in [the article about ticks](ticks/).
+Thanks to this mechanism, it is easy to calculate the share of fees due to each liquidity position. With the help of the ticks mechanism, it is possible to know at any moment what parts of accumulators were added at the moment when the price was between two given ticks. The definition of accumulator increments within the tick range is described in more detail in [the article about ticks](ticks.md).
 
 The corresponding values of accumulators increment are recorded in the position when it was created, let's call them:
 
