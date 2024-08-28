@@ -29,21 +29,27 @@ This is a modifed NFT contract to store user position
 | 11  | 512 | 511 | 
 
 ## Interface 
-### (slice) getPoolAddress ()
+### getPoolAddress
+ 
+(slice) getPoolAddress ()
  
  
   This function returns pool address that created this Position NFT
 
   * @return0 address in question 
  
-### (slice) getUserAddress ()
+### getUserAddress
+ 
+(slice) getUserAddress ()
  
  
   This function returns user address that owned created this Position NFT
 
   * @return0 address in question 
  
-### (int, int, int, int, int) getPositionInfo ()
+### getPositionInfo
+ 
+(int, int, int, int, int) getPositionInfo ()
  
  
   This function returns data stored in Position NFT and is related to the position
@@ -54,7 +60,9 @@ This is a modifed NFT contract to store user position
   * @return3 fee growth of jetton0 in the given range at moment of the creation or latest collect of the NFT position
   * @return4 fee growth of jetton1 in the given range at moment of the creation or latest collect of the NFT position
  
-### (int, int, slice, slice, cell) get_nft_data ()
+### get_nft_data
+ 
+(int, int, slice, slice, cell) get_nft_data ()
  
  
   This function returns data of this Position NFT that is related to NFT as TEP-62

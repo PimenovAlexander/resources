@@ -27,7 +27,9 @@
 | 11  | 496 | 527 | 
 
 ## Interface 
-### (slice, slice, int, int, int, int) get_account_data ()
+### get_account_data
+ 
+(slice, slice, int, int, int, int) get_account_data ()
  
  
 

@@ -55,7 +55,9 @@ Due to new storage organisation and availability of the **dict** data type we do
 | 21  | 534 | 489 | 
 
 ## Interface 
-### (slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int  ) getPoolStateAndConfiguration ()
+### getPoolStateAndConfiguration
+ 
+(slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int  ) getPoolStateAndConfiguration ()
  
   
     Returns is pool is active
@@ -68,19 +70,39 @@ int getIsActive() method_id {
 }
 
 {- %GET% 
-    Returns pool state and configuration
+  Returns pool state and configuration
 
-    @return0 int containing the poolv3::pool_active  
+  * @return0 Router address  
+  * @return1 Admin address  
+  * @return2 Jetton 0 Wallet address. Wallet is owned by the Router
+  * @return3 Jetton 1 Wallet address. Wallet is owned by the Router
+  * @return4 Jetton 0 Minter address. 
+  * @return5 Jetton 1 Minter address. 
+  * @return6 Flag that denotes if the pool is active
+  * @return7 Pool tick spacing
+  
+  * @return8  Fee that is used as a base. Stored in x 1/10000 
+  * @return9  Fee that protocol takes. Stored in x 1/10000 
+  * @return10 Fee that is currently active. Stored in x 1/10000 
+  
+  * @return11 Current tick 
+  * @return12 Current price
+  * @return13 Current liquidity
+
  
-### (cell, cell) getChildContracts ()
+### getChildContracts
+ 
+(cell, cell) getChildContracts ()
  
  
-  returns code of the child contracts 
+  returns code of the child contracts *deprecated*
 
   * @return1 code of the account contract
   * @return2 code of the nft position contract  
  
-### (tuple, tuple) getTickInfosFrom (int key, int amount, int dir)
+### getTickInfosFrom
+ 
+(tuple, tuple) getTickInfosFrom (int key, int amount, int dir)
  
   
    Returns amount ticks starting form key (non-inclusive)

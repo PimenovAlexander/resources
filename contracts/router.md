@@ -28,7 +28,9 @@ So if message reaches the pool it means some criterias are satisfied.
 | 1  | 268 | 755 | 
 
 ## Interface 
-### (cell, cell, cell) getChildContracts ()
+### getChildContracts
+ 
+(cell, cell, cell) getChildContracts ()
  
  
   This function returns if router is locked
