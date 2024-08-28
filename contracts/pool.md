@@ -60,9 +60,9 @@ Due to new storage organisation and availability of the **dict** data type we do
 (int) getIsActive ()
  
   
-    Returns is pool is active
+  Returns is pool is active
 
-    @return0 int containing the poolv3::pool_active  
+  * @return0 int containing the poolv3::pool_active  
  
 ### getPoolStateAndConfiguration
  
@@ -107,6 +107,13 @@ Due to new storage organisation and availability of the **dict** data type we do
    Returns amount ticks starting form key (non-inclusive)
    0 forward 
    1 backward
+
+  * @param key
+  * @param amount
+  * @param dir
+
+  * @return0
+  * @return1
  
 ### getCollectedFees
  
@@ -124,4 +131,81 @@ Due to new storage organisation and availability of the **dict** data type we do
   * @return0 amount of jetton0 that is collected
   * @return1 amount of jetton1 that is collected
 
+ 
+### getUserAccountAddress
+ 
+(slice) getUserAccountAddress (slice user_address)
+ 
+  
+   computes user account address for a given user
+
+   @return0 account address   
+ 
+### getMintEstimate
+ 
+(int, int, int) getMintEstimate (int tickLower, int tickUpper, int liquidity)
+ 
+  
+  Computes estimates fot the mint
+
+  * @param  tickLower
+  * @param  tickUpper
+  * @param  liquidity
+  
+  * @return0 amount of jetton0 needed to mint the position 
+  * @return1 amount of jetton1 needed to mint the position
+  * @return2 error code that shows if the basic checks for the mint would succseed 
+   
+ 
+### getSwapEstimate
+ 
+(int, int) getSwapEstimate (int zeroForOne, int amount, int sqrtPriceLimitX96)
+ 
+  
+  Computes estimates fot the swap
+
+  * @param  zeroForOne
+  * @param  amount
+  * @param  sqrtPriceLimitX96
+  
+  * @return0 amount of jetton0 that would be put to/get from the pool
+  * @return1 amount of jetton1 that would be put to/get from the pool
+ 
+### get_collection_data
+ 
+(int, cell, slice) get_collection_data ()
+ 
+  
+  In accordance with TEP-62
+
+  * @return0 
+  * @return1 
+  * @return2 
+ 
+### get_nft_address_by_index
+ 
+(slice) get_nft_address_by_index (int index)
+ 
+  
+  In accordance with TEP-62
+
+  * @return0   
+ 
+### get_nft_content
+ 
+(cell) get_nft_content (int index, cell nftv3item_content)
+ 
+  
+  In accordance with TEP-62
+
+  * @return0   
+ 
+### get_pool_data
+ 
+(int, int, slice, slice, int, int, int, slice, int, int) get_pool_data ()
+ 
+  
+    In accordance with ston.fi interface
+
+   * @return0   
  

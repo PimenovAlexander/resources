@@ -1,6 +1,5 @@
 # Table of contents
 
-* [README](README.md)
 * [💡 What is TONCO](overview/what-is-tonco.md)
 * [🫂 The Algebra Ecosystem](overview/the-algebra-ecosystem.md)
 * [🧑‍🔬 Algebra TONCO](overview/algebra-tonco.md)
