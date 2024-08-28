@@ -10,14 +10,19 @@
 
 
 ## Data Storage 
-| Index |   Type   | Size (b/r) | Cell | Name | Description |
-| ---   |  ---     |    ---     | ---  | ---  |    ---      | 
-|     1 |     addr |  267 /  0 |  1 | account::user_address | Address of the user ton wallet of the user that owns this two jetton account  |
-|     2 |     addr |  267 /  0 |  1 | account::pool_address | Address of the pool that created this two jetton account  |
-|     3 |    coins |  124 /  0 | 11 | account::amount0 | Anount of jetton0 (in pool terms) currently stored in the account  |
-|     4 |    coins |  124 /  0 | 11 | account::amount1 | Anount of jetton1 (in pool terms) currently stored in the account  |
-|     5 |    coins |  124 /  0 | 11 | account::enough0 | Anount of jetton0 (in pool terms) that is enought to make a mint operation. When reached for both tokens, mint is triggered  |
-|     6 |    coins |  124 /  0 | 11 | account::enough1 | Anount of jetton1 (in pool terms) that is enought to make a mint operation.  |
+<table data-full-width="true">
+<thead>
+<tr><th>Index</th><th>Type</th><th>Size (b/r)</th><th>Cell</th><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>account::user_address</td><td>Address of the user ton wallet of the user that owns this two jetton account  </tr>
+<tr><td>2</td><td>addr</td><td> 267 /  0</td><td>1</td><td>account::pool_address</td><td>Address of the pool that created this two jetton account  </tr>
+<tr><td>3</td><td>coins</td><td> 124 /  0</td><td>11</td><td>account::amount0</td><td>Anount of jetton0 (in pool terms) currently stored in the account  </tr>
+<tr><td>4</td><td>coins</td><td> 124 /  0</td><td>11</td><td>account::amount1</td><td>Anount of jetton1 (in pool terms) currently stored in the account  </tr>
+<tr><td>5</td><td>coins</td><td> 124 /  0</td><td>11</td><td>account::enough0</td><td>Anount of jetton0 (in pool terms) that is enought to make a mint operation. When reached for both tokens, mint is triggered  </tr>
+<tr><td>6</td><td>coins</td><td> 124 /  0</td><td>11</td><td>account::enough1</td><td>Anount of jetton1 (in pool terms) that is enought to make a mint operation.  </tr>
+</tbody>
+</table>
 
 
 ### Cells 

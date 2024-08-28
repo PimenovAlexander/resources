@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/TONCO_1500x500.jpeg
+cover: ./icons/TONCO_1500x500.jpeg
 coverY: 28
 layout:
   cover:
@@ -19,4 +19,4 @@ layout:
 
 # TONCO
 
-Welcome to Algebra X TONCO documentation.&#x20;
+Welcome to Algebra X TONCO documentation.

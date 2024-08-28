@@ -9,17 +9,22 @@
 This is a modifed NFT contract to store user position
 
 ## Data Storage 
-| Index |   Type   | Size (b/r) | Cell | Name | Description |
-| ---   |  ---     |    ---     | ---  | ---  |    ---      | 
-|     1 |   uint64 |  64 /  0 |  1 | positionv3::index | The position number. Also the nft index  |
-|     2 |     addr |  267 /  0 |  1 | positionv3::pool_address | Address of the pool that created this NFT  |
-|     3 |     addr |  267 /  0 |  1 | positionv3::user_address | Address of the user ton wallet that currently owns the position  |
-|     4 |     cell |  0 /  1 |  1 | positionv3::content | NFT metadata that contains image url, name and description packed in standart format  |
-|     5 |  uint128 |  128 /  0 |  1 | positionv3::liquidity | Position liquidity  |
-|     6 |    int24 |  24 /  0 |  1 | positionv3::tickLower | Positioni lower tick number  |
-|     7 |    int24 |  24 /  0 |  1 | positionv3::tickUpper | Positioni upper tick number  |
-|     8 |  uint256 |  256 /  0 | 11 | positionv3::feeGrowthInside0LastX128 | Fees collected before the position was opened or updated for jetton0 (in pool terms)  |
-|     9 |  uint256 |  256 /  0 | 11 | positionv3::feeGrowthInside1LastX128 | Fees collected before the position was opened or updated for jetton1 (in pool terms)  |
+<table data-full-width="true">
+<thead>
+<tr><th>Index</th><th>Type</th><th>Size (b/r)</th><th>Cell</th><th>Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>positionv3::index</td><td>The position number. Also the nft index  </tr>
+<tr><td>2</td><td>addr</td><td> 267 /  0</td><td>1</td><td>positionv3::pool_address</td><td>Address of the pool that created this NFT  </tr>
+<tr><td>3</td><td>addr</td><td> 267 /  0</td><td>1</td><td>positionv3::user_address</td><td>Address of the user ton wallet that currently owns the position  </tr>
+<tr><td>4</td><td>cell</td><td> 0 /  1</td><td>1</td><td>positionv3::content</td><td>NFT metadata that contains image url, name and description packed in standart format  </tr>
+<tr><td>5</td><td>uint128</td><td> 128 /  0</td><td>1</td><td>positionv3::liquidity</td><td>Position liquidity  </tr>
+<tr><td>6</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickLower</td><td>Positioni lower tick number  </tr>
+<tr><td>7</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickUpper</td><td>Positioni upper tick number  </tr>
+<tr><td>8</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>positionv3::feeGrowthInside0LastX128</td><td>Fees collected before the position was opened or updated for jetton0 (in pool terms)  </tr>
+<tr><td>9</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>positionv3::feeGrowthInside1LastX128</td><td>Fees collected before the position was opened or updated for jetton1 (in pool terms)  </tr>
+</tbody>
+</table>
 
 
 ### Cells 
