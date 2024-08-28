@@ -2,16 +2,16 @@
 
 * [README](README.md)
 * [💡 What is TONCO](overview/what-is-tonco.md)
-* [🫂The Algebra Ecosystem](overview/the-algebra-ecosystem.md)
-* [🧑‍🔬Algebra TONCO](overview/algebra-tonco.md)
-* [📚Glossary](overview/glossary.md)
-* [🪙Tokenomics](overview/tokenomics.md)
-* [📱Social Media & Links](overview/social-media-links.md)
-* [  Intro](overview/intro.md)
-* [🔍Audits](overview/audits.md)
-* [🏗️Integration Process](overview/integration-process.md)
+* [🫂 The Algebra Ecosystem](overview/the-algebra-ecosystem.md)
+* [🧑‍🔬 Algebra TONCO](overview/algebra-tonco.md)
+* [📚 Glossary](overview/glossary.md)
+* [🪙 Tokenomics](overview/tokenomics.md)
+* [📱 Social Media & Links](overview/social-media-links.md)
+* [   Intro](overview/intro.md)
+* [🔍 Audits](overview/audits.md)
+* [🏗️ Integration Process](overview/integration-process.md)
 
-* [🖲️Core Logic](core-logic/README.md)
+* [🖲️ Core Logic](core-logic/README.md)
   * [Pool overview](core-logic/pool-overview.md)
   * [Swap calculation](core-logic/swap-calculation.md)
   * [Liquidity and positions](core-logic/liquidity-and-positions.md)
@@ -24,11 +24,11 @@
 
 ## Algebra V1 / Technical Reference
 
-* [🔏Contracts](technical/contracts.md)
-* [📊Subgraph](technical/subgraph.md)
-* [🖥️Frontend](technical/frontend.md)
-* [⚙️Backend](technical/backend.md)
-* [⛑️Guides](technical/guides.md)
+* [🔏 Contracts](technical/contracts.md)
+* [📊 Subgraph](technical/subgraph.md)
+* [🖥️ Frontend](technical/frontend.md)
+* [⚙️ Backend](technical/backend.md)
+* [⛑️ Guides](technical/guides.md)
 
 ## Other
 
