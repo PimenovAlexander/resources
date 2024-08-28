@@ -10,7 +10,7 @@
 * [ℹ️ Intro](overview/intro.md)
 * [🔍 Audits](overview/audits.md)
 * [🏗️ Integration Process](overview/integration-process.md)
-* [🦉 Core Logic](core-logic/README.md)
+* [🖲️ Core Logic](core-logic/README.md)
   * [🧺 Pool overview](core-logic/pool-overview.md)
   * [Swap calculation](core-logic/swap-calculation.md)
   * [💰 Liquidity and positions](core-logic/liquidity-and-positions.md)
