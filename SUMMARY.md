@@ -17,9 +17,14 @@
   * [📏 Ticks](core-logic/ticks.md)
   * [🏦 Reserves](core-logic/reserves.md)
 
-## Algebra V1 / Technical Reference
+## TONCO V1 / Technical Reference
 
-* [🔏 Contracts](technical/contracts.md)
+* [🔏 Contracts](contracts/README.md)
+  * [Pool](contracts/pool.md)
+  * [Router](contracts/router.md)
+  * [Position NFT](contracts/position_nft.md)
+  * [Account](contracts/account.md)
+  * [Operations](contracts/operations.md) 
 * [📊 Subgraph](technical/subgraph.md)
 * [🖥️ Frontend](technical/frontend.md)
 * [⚙️ Backend](technical/backend.md)
