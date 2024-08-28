@@ -1,29 +1,32 @@
-  * Scenarios 
-      * [Deploy Pool](#deploy-pool)
-      * [Init Pool](#init-pool) 
-      * [Mint](#mint)
-      * [Swap](#swap) 
-      * [Burn](#burn) 
+# Operations
 
+* Scenarios
+  * [Deploy Pool](operations.md#deploy-pool)
+  * [Init Pool](operations.md#init-pool)
+  * [Mint](operations.md#mint)
+  * [Swap](operations.md#swap)
+  * [Burn](operations.md#burn)
 
-# Scenarios
+## Scenarios
 
-## Deploy Pool
+### Deploy Pool
 
-<img src="../images/deploy.svg" width="1000px" >
+![](../images/deploy.svg)
 
-## Init Pool
+<figure><img src="../images/init.svg" alt="" width="203"><figcaption></figcaption></figure>
 
-<img src="../images/init.svg" width="1000px" >
+### Init Pool
 
-## Mint
+![](../images/init.svg)
 
-<img src="../images/mint.svg">
+### Mint
 
-## Swap
+![](../images/mint.svg)
 
-<img src="../images/swap.svg">
+### Swap
 
-## Burn
+![](../images/swap.svg)
 
-<img src="../images/burn.svg" width="1000px" >      
+### Burn
+
+![](../images/burn.svg)
