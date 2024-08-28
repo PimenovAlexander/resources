@@ -4,11 +4,11 @@
 * [Data Storage](#data-storage)
 * [Interface](#interface)
 
-### Description 
+## Description 
 
 This is a modifed NFT contract to store user position
 
-### Data Storage 
+## Data Storage 
 | Index |   Type   | Size (b/r) | Cell | Name | Description |
 | ---   |  ---     |    ---     | ---  | ---  |    ---      | 
 |     1 |   uint64 |  64 /  0 |  1 | positionv3::index | The position number. Also the nft index  |
@@ -57,5 +57,5 @@ This is a modifed NFT contract to store user position
 ### (int, int, slice, slice, cell) get_nft_data ()
  
  
-     This function returns data of this Position NFT that is related to NFT as TEP-62
+  This function returns data of this Position NFT that is related to NFT as TEP-62
  

@@ -4,13 +4,13 @@
 * [Data Storage](#data-storage)
 * [Interface](#interface)
 
-### Description 
+## Description 
 
 This contract implements V3 like functionality of the pool with concentrated liquidity. 
 
 Due to new storage organisation and availability of the **dict** data type we don't need the tickBitmap data structures. However gas consumption while using the dict is also quite siginificant
 
-### Data Storage 
+## Data Storage 
 | Index |   Type   | Size (b/r) | Cell | Name | Description |
 | ---   |  ---     |    ---     | ---  | ---  |    ---      | 
 |     1 |     addr |  267 /  0 |  1 | poolv3::router_address | Address of the router contract that created this pool  |
@@ -55,16 +55,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 | 21  | 534 | 489 | 
 
 ## Interface 
-### (slice, slice, 
- slice, slice, slice, slice,
- int, int,
- int, int, int,
- int, int, int,
- int, int, int, int, 
- int,
- int, int,
- int, int 
- ) getPoolStateAndConfiguration ()
+### (slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int  ) getPoolStateAndConfiguration ()
  
   
     Returns is pool is active
@@ -80,6 +71,14 @@ int getIsActive() method_id {
     Returns pool state and configuration
 
     @return0 int containing the poolv3::pool_active  
+ 
+### (cell, cell) getChildContracts ()
+ 
+ 
+  returns code of the child contracts 
+
+  * @return1 code of the account contract
+  * @return2 code of the nft position contract  
  
 ### (tuple, tuple) getTickInfosFrom (int key, int amount, int dir)
  

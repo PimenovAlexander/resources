@@ -4,12 +4,12 @@
 * [Data Storage](#data-storage)
 * [Interface](#interface)
 
-### Description 
+## Description 
 
    Account contract. This a contract that stores the funds that user would use for minting, And also proxies the minting message
 
 
-### Data Storage 
+## Data Storage 
 | Index |   Type   | Size (b/r) | Cell | Name | Description |
 | ---   |  ---     |    ---     | ---  | ---  |    ---      | 
 |     1 |     addr |  267 /  0 |  1 | account::user_address | Address of the user ton wallet of the user that owns this two jetton account  |
