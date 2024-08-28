@@ -3,6 +3,7 @@
 * [Description](#description)
 * [Data Storage](#data-storage)
 * [Interface](#interface)
+* [Messages](#messages)
 
 # Description 
 
@@ -214,3 +215,76 @@ Due to new storage organisation and availability of the **dict** data type we do
 
   * @return0   
  
+# Messages 
+
+## POOLV3_DEPLOY 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * admin_addr of type Address()
+
+## POOLV3_INIT 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * tick_spacing of type Int(24)   
+  * priceLimitX96 of type Uint(160),PriceX96
+  * nftv3_content of type Cell(),Metadata
+  * nftv3item_content of type Cell(),Metadata
+  * jetton0_minter of type Address()
+  * jetton1_minter of type Address()
+  * controller_addr of type Address()
+
+## POOLV3_SET_FEE 
+
+## POOLV3_LOCK 
+
+## POOLV3_UNLOCK 
+
+## POOLV3_FUND_ACCOUNT 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * owner_addr of type Address() 
+  * amount0 of type Coins()   
+  * amount1 of type Coins()   
+  * enough0 of type Coins()   
+  * enough1 of type Coins()   
+  * liquidity of type Uint(128) 
+  * tickLower of type Int(24)   
+  * tickUpper of type Int(24)   
+
+## POOLV3_MINT 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * amount0Funded of type Coins()  
+  * amount1Funded of type Coins()  
+  * recipient of type Address()
+  * liquidity of type Uint(128)
+  * tickLower of type Int(24)  
+  * tickUpper of type Int(24)  
+
+## POOLV3_START_BURN 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * burned_index of type Uint(64)   
+  * liquidity2Burn of type Uint(128) 
+  * tickLower of type Int(24)   
+  * tickUpper of type Int(24)   
+
+## POOLV3_BURN 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * recipient of type Address() 
+  * burned_index of type Uint(64)   
+  * liquidity of type Uint(128) 
+  * tickLower of type Int(24)   
+  * tickUpper of type Int(24)   
+  * liquidity2Burn of type Uint(128) 
+  * feeGrowthInside0LastX128 of type Uint(256)
+  * feeGrowthInside1LastX128 of type Uint(256)
+
+## POOLV3_SWAP 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * source_wallet of type Address() 
+  * amount of type Coins()   
+  * sqrtPriceLimitX96 of type Uint(160),PriceX96
+  * from_real_user of type Address() 

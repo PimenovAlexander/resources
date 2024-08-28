@@ -6,12 +6,6 @@ The liquidity pool is a key component of the Algebra Integral protocol. This sma
 
 For each pair of tokens in the Algebra protocol, one unique pool is created. This approach minimises liquidity fragmentation, simplifies the construction of optimal routes for swaps, and simplifies liquidity management for liquidity providers.
 
-<div data-full-width="false">
-
-<figure><img src="../.gitbook/assets/Algebra%20factory.drawio%20(1)%20(1).png" alt="" width="375"><figcaption></figcaption></figure>
-
-</div>
-
 The address of each pool is determined deterministically by the `create2` mechanism using token addresses as salt.
 
 Liquidity pools are not intended for direct use by ordinary users - for convenient use of the protocol functionality, users use peripheral contracts that implement additional calculations and security checks.
@@ -20,9 +14,9 @@ Liquidity pools are not intended for direct use by ordinary users - for convenie
 
 The liquidity pool expects the token to be ERC20 standard. In addition, there are the following limitations:
 
-1. The Algebra Integral protocol does not support tokens that can arbitrarily reduce balances at addresses.
-2. The Algebra Integral protocol does not guarantee full functionality when using tokens whose total supply exceeds $$2^{128} -1$$(maximum value uint128).
-3. The Algebra Integral protocol does not guarantee full performance with tokens that have the ability to selfdestruct or upgradeable code.
+1. The Algebra TONCO does not support tokens that can arbitrarily reduce balances at addresses.
+2. The Algebra TONCO does not guarantee full functionality when using tokens whose total supply exceeds $$2^{128} -1$$(maximum value uint128).
+3. The Algebra TONCO does not guarantee full performance with tokens that have the ability to selfdestruct or upgradeable code.
 
 ### Pool Description
 
