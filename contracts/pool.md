@@ -55,21 +55,20 @@ Due to new storage organisation and availability of the **dict** data type we do
 | 21  | 534 | 489 | 
 
 ## Interface 
-### getPoolStateAndConfiguration
+### getIsActive
  
-(slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int  ) getPoolStateAndConfiguration ()
+(int) getIsActive ()
  
   
     Returns is pool is active
 
     @return0 int containing the poolv3::pool_active  
--}
-int getIsActive() method_id {
-    load_storage();
-    return (poolv3::pool_active);
-}
-
-{- %GET% 
+ 
+### getPoolStateAndConfiguration
+ 
+(slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int  ) getPoolStateAndConfiguration ()
+ 
+  
   Returns pool state and configuration
 
   * @return0 Router address  
@@ -108,4 +107,21 @@ int getIsActive() method_id {
    Returns amount ticks starting form key (non-inclusive)
    0 forward 
    1 backward
+ 
+### getCollectedFees
+ 
+(int, int) getCollectedFees (int tickLower, int tickUpper, int posLiquidityDelta, int posFeeGrowthInside0X128, int posFeeGrowthInside1X128)
+ 
+  
+  Predicts how much fees can a position collect
+  
+  * @param tickLower
+  * @param tickUpper
+  * @param posLiquidityDelta
+  * @param posFeeGrowthInside0X128
+  * @param posFeeGrowthInside1X128
+
+  * @return0 amount of jetton0 that is collected
+  * @return1 amount of jetton1 that is collected
+
  
