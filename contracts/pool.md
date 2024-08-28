@@ -1,4 +1,9 @@
 ## pool
+
+* [Description](#description)
+* [Storage](#storage)
+* [Interface](#interface)
+
 ### Description 
 
 This contract implements V3 like functionality of the pool with concentrated liquidity. 
@@ -6,7 +11,6 @@ This contract implements V3 like functionality of the pool with concentrated liq
 Due to new storage organisation and availability of the **dict** data type we don't need the tickBitmap data structures. However gas consumption while using the dict is also quite siginificant
 
 ### Data Storage 
-Location [poolv3](../contracts/poolv3)
 | Index |   Type   | Size (b/r) | Cell | Name | Description |
 | ---   |  ---     |    ---     | ---  | ---  |    ---      | 
 |     1 |     addr |  267 /  0 |  1 | poolv3::router_address | Address of the router contract that created this pool  |
@@ -38,6 +42,8 @@ Location [poolv3](../contracts/poolv3)
 |    27 |     code |  0 /  1 |  4 | poolv3::position_nftv3_code | Pool knows how to create user position. So it stores it's code  |
 |    28 |     cell |  0 /  1 |  4 | poolv3::nftv3_content | packed metadata that would be given to nft that corresponds to nft colletion  |
 |    29 |     cell |  0 /  1 |  4 | poolv3::nftv3item_content | packed metadata that would be given to nft that corresponds to the position  |
+
+
 ### Cells 
 | Name |   Size  |   Free  |
 | ---  |  ---    |  ---    |
@@ -47,3 +53,22 @@ Location [poolv3](../contracts/poolv3)
 | 4  | 0 | 1023 | 
 | 11  | 1016 | 7 | 
 | 21  | 534 | 489 | 
+
+## Interface 
+### getPoolStateAndConfiguration 
+ 
+  
+    Returns is pool is active
+
+    @return0 int containing the poolv3::pool_active  
+-}
+int getIsActive() method_id {
+    load_storage();
+    return (poolv3::pool_active);
+}
+
+{- %GET% 
+    Returns pool state and configuration
+
+    @return0 int containing the poolv3::pool_active  
+ 
