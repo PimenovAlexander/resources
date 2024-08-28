@@ -35,4 +35,4 @@
 
 ## Other
 
-* [\[❗Link Awareness Notice](other/link-awareness-notice.md)
+* [❗Link Awareness Notice](other/link-awareness-notice.md)
