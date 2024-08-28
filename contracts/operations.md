@@ -13,20 +13,21 @@
 
 ![](../images/deploy.svg)
 
-<figure><img src="../images/init.svg" alt="" width="203"><figcaption></figcaption></figure>
+<figure><img src="../images/deploy.svg" alt="" width="203"><figcaption></figcaption></figure>
 
 ### Init Pool
 
-![](../images/init.svg)
+<figure><img src="../images/init.svg" alt="" width="203"><figcaption></figcaption></figure>
 
 ### Mint
 
-![](../images/mint.svg)
+<figure><img src="../images/mint.svg" alt="" width="500"><figcaption></figcaption></figure>
 
 ### Swap
 
-![](../images/swap.svg)
+<figure><img src="../images/swap.svg" alt="" width="500"><figcaption></figcaption></figure>
 
 ### Burn
 
-![](../images/burn.svg)
+<figure><img src="../images/burn.svg" alt="" width="203"><figcaption></figcaption></figure>
+
