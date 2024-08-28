@@ -4,14 +4,14 @@
 * [Data Storage](#data-storage)
 * [Interface](#interface)
 
-## Description 
+# Description 
 
 This is a modifed NFT contract to store user position
 
-## Data Storage 
+# Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th>Index</th><th>Type</th><th>Size (b/r)</th><th>Cell</th><th>Name</th><th>Description</th></tr>
+<tr><th width="92">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th>Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>positionv3::index</td><td>The position number. Also the nft index  </tr>
@@ -27,14 +27,14 @@ This is a modifed NFT contract to store user position
 </table>
 
 
-### Cells 
+# Cells 
 | Name |   Size  |   Free  |
 | ---  |  ---    |  ---    |
 | 1  | 774 | 249 | 
 | 11  | 512 | 511 | 
 
-## Interface 
-### getPoolAddress
+# Interface 
+## getPoolAddress
  
 (slice) getPoolAddress ()
  
@@ -43,7 +43,7 @@ This is a modifed NFT contract to store user position
 
   * @return0 address in question 
  
-### getUserAddress
+## getUserAddress
  
 (slice) getUserAddress ()
  
@@ -52,7 +52,7 @@ This is a modifed NFT contract to store user position
 
   * @return0 address in question 
  
-### getPositionInfo
+## getPositionInfo
  
 (int, int, int, int, int) getPositionInfo ()
  
@@ -65,7 +65,7 @@ This is a modifed NFT contract to store user position
   * @return3 fee growth of jetton0 in the given range at moment of the creation or latest collect of the NFT position
   * @return4 fee growth of jetton1 in the given range at moment of the creation or latest collect of the NFT position
  
-### get_nft_data
+## get_nft_data
  
 (int, int, slice, slice, cell) get_nft_data ()
  

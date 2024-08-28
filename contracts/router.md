@@ -4,7 +4,7 @@
 * [Data Storage](#data-storage)
 * [Interface](#interface)
 
-## Description 
+# Description 
           
 This contract implements router and management of the pools. Due to destributed nature of the Router it can't do many checks, so it's mostly the proxy for the calls
 
@@ -12,10 +12,10 @@ Main idea is that if malformed or corrupted data is sent to the router it would 
 So if message reaches the pool it means some criterias are satisfied.
 
 
-## Data Storage 
+# Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th>Index</th><th>Type</th><th>Size (b/r)</th><th>Cell</th><th>Name</th><th>Description</th></tr>
+<tr><th width="92">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th>Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>uint1</td><td> 1 /  0</td><td>1</td><td>router::is_locked</td><td>Unused - flag that denotes if the router is locked  </tr>
@@ -27,13 +27,13 @@ So if message reaches the pool it means some criterias are satisfied.
 </table>
 
 
-### Cells 
+# Cells 
 | Name |   Size  |   Free  |
 | ---  |  ---    |  ---    |
 | 1  | 268 | 755 | 
 
-## Interface 
-### getChildContracts
+# Interface 
+## getChildContracts
  
 (cell, cell, cell) getChildContracts ()
  
