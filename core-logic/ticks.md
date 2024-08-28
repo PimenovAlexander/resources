@@ -2,7 +2,7 @@
 
 Relevant and important files:
 
-* base/TickStructure.sol
+* TBD
 
 ### Ticks
 
@@ -14,23 +14,15 @@ The ticks are distributed logarithmically: the tick with index i corresponds to 
 
 $$P(t_i) = 1.0001^i$$
 
-Inside the segment defined by two neighbouring ticks (often this segment is also called a tick), the AMM behaves like a regular CPF-AMM (like UniV2). When the price crosses a tick, the value of active liquidity may change (if the boundary of someone's position is crossed).
+Inside the segment defined by two neighboring ticks (often this segment is also called a tick), the AMM behaves like a regular CPF-AMM (like UniV2). When the price crosses a tick, the value of active liquidity may change (if the boundary of someone's position is crossed).
 
 For this reason, when making swaps, you should be able to find the next active tick (a tick that is the boundary of a position).
 
-#### Doubly linked tick list
+#### Storing ticks in TON Contract
 
-To simplify navigation through ticks during swaps and for other purposes, Algebra Integral organises ticks as a doubly linked list: each tick stores pointers (indices) of the next and previous active ticks.
+To simplify navigation through ticks during swaps and for other purposes,  active ticks are organized in a dict() with 24bit signed ints used as keys.&#x20;
 
-<figure><img src="../.gitbook/assets/image%20(2).png" alt=""><figcaption></figcaption></figure>
-
-The list always contains the minimum and maximum possible ticks (as boundary values). Therefore, the list is never empty.
-
-<figure><img src="../.gitbook/assets/image%20(3).png" alt=""><figcaption></figcaption></figure>
-
-The pool always stores information about which ticks are currently the next and previous active ticks, so when swapping, it is easy to get information about which tick a particular iteration of the swap is up to. In each tick, the indices of the previous and next active ticks are stored in the same storage slot along with the liquidity delta, which makes it cheaper to navigate through the ticks when swapping.
-
-However, when adding liquidity, it is necessary to have access to an arbitrary section of the doubly linked list (to insert a new tick into the list). For this purpose, Algebra Integral implements [a ticks search tree](broken-reference).
+&#x20;  Because dict() is internally stored as a tree  pool always has quick access to the information about which ticks are currently the next and previous active ticks. So when swapping, it is easy to get information about which tick a particular iteration of the swap is up to.&#x20;
 
 ### Determination of fee increment within the range of ticks
 
@@ -99,8 +91,4 @@ The minimum allowed tick is -**887272**.
 
 Thus, there can be (887272 + 887272 + 1).
 
-Then the first level of the tree has ceil((887272 + 887272 + 1) / 256) leaves, i.e. **6932** leaves.
-
-Then the second level needs ceil(6932 / 256) nodes, i.e. **28** nodes.
-
-Thus, the root must store information about 28 descendants and a 32-bit value is sufficient to record it.
+.
