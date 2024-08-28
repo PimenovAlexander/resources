@@ -22,9 +22,6 @@
   * [Plugins](core-logic/plugins.md)
   * [AlgebraFactory and roles](core-logic/algebrafactory-and-roles.md)
 
-* [🦉 Page](page/README.md)
-  * [👲 Page 1](page/page-1.md)
-
 ## Algebra V1 / Technical Reference
 
 * [🔏Contracts](technical/contracts.md)
