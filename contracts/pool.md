@@ -1,7 +1,7 @@
 ## pool
 
 * [Description](#description)
-* [Storage](#storage)
+* [Data Storage](#data-storage)
 * [Interface](#interface)
 
 ### Description 
@@ -55,7 +55,16 @@ Due to new storage organisation and availability of the **dict** data type we do
 | 21  | 534 | 489 | 
 
 ## Interface 
-### getPoolStateAndConfiguration 
+### (slice, slice, 
+ slice, slice, slice, slice,
+ int, int,
+ int, int, int,
+ int, int, int,
+ int, int, int, int, 
+ int,
+ int, int,
+ int, int 
+ ) getPoolStateAndConfiguration ()
  
   
     Returns is pool is active
@@ -71,4 +80,11 @@ int getIsActive() method_id {
     Returns pool state and configuration
 
     @return0 int containing the poolv3::pool_active  
+ 
+### (tuple, tuple) getTickInfosFrom (int key, int amount, int dir)
+ 
+  
+   Returns amount ticks starting form key (non-inclusive)
+   0 forward 
+   1 backward
  

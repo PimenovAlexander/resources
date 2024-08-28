@@ -1,7 +1,7 @@
 ## account
 
 * [Description](#description)
-* [Storage](#storage)
+* [Data Storage](#data-storage)
 * [Interface](#interface)
 
 ### Description 
@@ -27,16 +27,16 @@
 | 11  | 496 | 527 | 
 
 ## Interface 
-### get_account_data 
+### (slice, slice, int, int, int, int) get_account_data ()
  
  
 
   This function provides current state of the user account
 
-  @return0 account::user_address   Address of the owner of the account
-  @return1 account::pool_address   Address of the pool that this account is attached to
-  @return2 account::amount0        Amount of jetton0 that was deposited for mint
-  @return3 account::amount1        Amount of jetton1 that was deposited for mint
-  @return4 account::enough0         
-  @return5 account::enough1
+  * @return0 account::user_address   Address of the owner of the account
+  * @return1 account::pool_address   Address of the pool that this account is attached to
+  * @return2 account::amount0        Amount of jetton0 that was deposited for mint
+  * @return3 account::amount1        Amount of jetton1 that was deposited for mint
+  * @return4 account::enough0         
+  * @return5 account::enough1
  
