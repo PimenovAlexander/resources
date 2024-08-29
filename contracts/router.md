@@ -76,3 +76,18 @@ So if message reaches the pool it means some criterias are satisfied.
   * @return2 code of the nft position contract
   
  
+# Messages 
+
+## ROUTERV3_CREATE_POOL 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * jetton_wallet0 of type Address()
+  * jetton_wallet1 of type Address()
+
+## ROUTERV3_PAY_TO 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * owner of type Address()
+  * exit_code of type Uint(32) 
+
+## ROUTERV3_TRANSFER_NOTIFICATION 

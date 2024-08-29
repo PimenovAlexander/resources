@@ -48,3 +48,17 @@
   * @return4 account::enough0         
   * @return5 account::enough1
  
+# Messages 
+
+## ACCOUNTV3_ADD_LIQUIDITY 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * new_amount0 of type Coins()  
+  * new_amount1 of type Coins()  
+  * new_enough0 of type Coins()  
+  * new_enough1 of type Coins()  
+  * liquidity of type Uint(128)
+  * tickMin of type Int(24)  
+  * tickMax of type Int(24)  
+
+## ACCOUNTV3_RESET_GAS 

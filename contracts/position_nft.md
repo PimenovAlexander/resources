@@ -73,3 +73,30 @@ This is a modifed NFT contract to store user position
  
   This function returns data of this Position NFT that is related to NFT as TEP-62
  
+# Messages 
+
+## POSITIONNFTV3_POSITION_INIT 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * user_address of type Address()
+  * liquidity of type Uint(128)
+  * tickLower of type Int(24)  
+  * tickUpper of type Int(24)  
+  * feeGrowthInside0LastX128 of type Uint(256) 
+  * feeGrowthInside1LastX128 of type Uint(256) 
+  * nftIndex of type Uint(64),Indexer
+  * jetton0Amount of type Coins(),Indexer
+  * jetton1Amount of type Coins(),Indexer
+  * tick of type Int(24),Indexer
+
+## POSITIONNFTV3_POSITION_BURN 
+  * op of type Uint(32) op
+  * query_id of type Uint(64) 
+  * nft_owner of type Address()
+  * liquidity2Burn of type Uint(128)
+  * tickLower of type Int(24)  
+  * tickUpper of type Int(24)  
+  * feeGrowthInside0LastX128 of type Uint(256) 
+  * feeGrowthInside1LastX128 of type Uint(256) 
+
+## NFT_TRANSFER,POSITIONNFTV3_NFT_TRANSFER 
