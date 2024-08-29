@@ -76,27 +76,33 @@ This is a modifed NFT contract to store user position
 # Messages 
 
 ## POSITIONNFTV3_POSITION_INIT 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * user_address of type Address()
-  * liquidity of type Uint(128)
-  * tickLower of type Int(24)  
-  * tickUpper of type Int(24)  
-  * feeGrowthInside0LastX128 of type Uint(256) 
-  * feeGrowthInside1LastX128 of type Uint(256) 
-  * nftIndex of type Uint(64),Indexer
-  * jetton0Amount of type Coins(),Indexer
-  * jetton1Amount of type Coins(),Indexer
-  * tick of type Int(24),Indexer
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| user_address | Address() |  | 
+| liquidity | Uint(128) |  | 
+| tickLower | Int(24)   |  | 
+| tickUpper | Int(24)   |  | 
+| feeGrowthInside0LastX128 | Uint(256)  |  | 
+| feeGrowthInside1LastX128 | Uint(256)  |  | 
+| nftIndex | Uint(64),Indexer |  | 
+| jetton0Amount | Coins(),Indexer |  | 
+| jetton1Amount | Coins(),Indexer |  | 
+| tick | Int(24),Indexer |  | 
 
 ## POSITIONNFTV3_POSITION_BURN 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * nft_owner of type Address()
-  * liquidity2Burn of type Uint(128)
-  * tickLower of type Int(24)  
-  * tickUpper of type Int(24)  
-  * feeGrowthInside0LastX128 of type Uint(256) 
-  * feeGrowthInside1LastX128 of type Uint(256) 
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| nft_owner | Address() |  | 
+| liquidity2Burn | Uint(128) |  | 
+| tickLower | Int(24)   |  | 
+| tickUpper | Int(24)   |  | 
+| feeGrowthInside0LastX128 | Uint(256)  |  | 
+| feeGrowthInside1LastX128 | Uint(256)  |  | 
 
 ## NFT_TRANSFER,POSITIONNFTV3_NFT_TRANSFER 
+| Mnemonic | Type | Description |
+| --- | --- | --- |

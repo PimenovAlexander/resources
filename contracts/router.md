@@ -79,15 +79,21 @@ So if message reaches the pool it means some criterias are satisfied.
 # Messages 
 
 ## ROUTERV3_CREATE_POOL 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * jetton_wallet0 of type Address()
-  * jetton_wallet1 of type Address()
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| jetton_wallet0 | Address() |  | 
+| jetton_wallet1 | Address() |  | 
 
 ## ROUTERV3_PAY_TO 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * owner of type Address()
-  * exit_code of type Uint(32) 
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| owner | Address() |  | 
+| exit_code | Uint(32)  |  | 
 
 ## ROUTERV3_TRANSFER_NOTIFICATION 
+| Mnemonic | Type | Description |
+| --- | --- | --- |

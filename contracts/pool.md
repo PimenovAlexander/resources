@@ -218,73 +218,102 @@ Due to new storage organisation and availability of the **dict** data type we do
 # Messages 
 
 ## POOLV3_DEPLOY 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * admin_addr of type Address()
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| admin_addr | Address() |  | 
 
 ## POOLV3_INIT 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * tick_spacing of type Int(24)   
-  * priceLimitX96 of type Uint(160),PriceX96
-  * nftv3_content of type Cell(),Metadata
-  * nftv3item_content of type Cell(),Metadata
-  * jetton0_minter of type Address()
-  * jetton1_minter of type Address()
-  * controller_addr of type Address()
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| tick_spacing | Int(24)    |  | 
+| priceLimitX96 | Uint(160),PriceX96 |  | 
+| nftv3_content | Cell(),Metadata |  | 
+| nftv3item_content | Cell(),Metadata |  | 
+| jetton0_minter | Address() |  | 
+| jetton1_minter | Address() |  | 
+| controller_addr | Address() |  | 
 
 ## POOLV3_SET_FEE 
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| protocol_fee | Uint(16)  |  | 
+| lp_fee_base | Uint(16)  |  | 
+| lp_fee_current | Uint(16)  |  | 
 
 ## POOLV3_LOCK 
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
 
 ## POOLV3_UNLOCK 
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
 
 ## POOLV3_FUND_ACCOUNT 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * owner_addr of type Address() 
-  * amount0 of type Coins()   
-  * amount1 of type Coins()   
-  * enough0 of type Coins()   
-  * enough1 of type Coins()   
-  * liquidity of type Uint(128) 
-  * tickLower of type Int(24)   
-  * tickUpper of type Int(24)   
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| owner_addr | Address()  |  | 
+| amount0 | Coins()    |  | 
+| amount1 | Coins()    |  | 
+| enough0 | Coins()    |  | 
+| enough1 | Coins()    |  | 
+| liquidity | Uint(128)  |  | 
+| tickLower | Int(24)    |  | 
+| tickUpper | Int(24)    |  | 
 
 ## POOLV3_MINT 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * amount0Funded of type Coins()  
-  * amount1Funded of type Coins()  
-  * recipient of type Address()
-  * liquidity of type Uint(128)
-  * tickLower of type Int(24)  
-  * tickUpper of type Int(24)  
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
+| amount0Funded | Coins()   | Amount of jetton 0 recived by router for the mint | 
+| amount1Funded | Coins()   | Amount of jetton 1 recived by router for the mint | 
+| recipient | Address() |  | 
+| liquidity | Uint(128) |  | 
+| tickLower | Int(24)   |  | 
+| tickUpper | Int(24)   |  | 
 
 ## POOLV3_START_BURN 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * burned_index of type Uint(64)   
-  * liquidity2Burn of type Uint(128) 
-  * tickLower of type Int(24)   
-  * tickUpper of type Int(24)   
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| burned_index | Uint(64)    |  | 
+| liquidity2Burn | Uint(128)  |  | 
+| tickLower | Int(24)    |  | 
+| tickUpper | Int(24)    |  | 
 
 ## POOLV3_BURN 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * recipient of type Address() 
-  * burned_index of type Uint(64)   
-  * liquidity of type Uint(128) 
-  * tickLower of type Int(24)   
-  * tickUpper of type Int(24)   
-  * liquidity2Burn of type Uint(128) 
-  * feeGrowthInside0LastX128 of type Uint(256)
-  * feeGrowthInside1LastX128 of type Uint(256)
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| recipient | Address()  |  | 
+| burned_index | Uint(64)    |  | 
+| liquidity | Uint(128)  |  | 
+| tickLower | Int(24)    |  | 
+| tickUpper | Int(24)    |  | 
+| liquidity2Burn | Uint(128)  |  | 
+| feeGrowthInside0LastX128 | Uint(256) |  | 
+| feeGrowthInside1LastX128 | Uint(256) |  | 
 
 ## POOLV3_SWAP 
-  * op of type Uint(32) op
-  * query_id of type Uint(64) 
-  * source_wallet of type Address() 
-  * amount of type Coins()   
-  * sqrtPriceLimitX96 of type Uint(160),PriceX96
-  * from_real_user of type Address() 
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 
+| source_wallet | Address()  |  | 
+| amount | Coins()    |  | 
+| sqrtPriceLimitX96 | Uint(160),PriceX96 |  | 
+| from_real_user | Address()  |  | 
