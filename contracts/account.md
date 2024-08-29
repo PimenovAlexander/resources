@@ -50,7 +50,7 @@
  
 # Messages 
 
-## ACCOUNTV3_ADD_LIQUIDITY 
+## ACCOUNTV3_ADD_LIQUIDITY ( **0x3ebe5431 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -63,6 +63,8 @@
 | tickMin | Int(24)   |  | 
 | tickMax | Int(24)   |  | 
 
-## ACCOUNTV3_RESET_GAS 
+## ACCOUNTV3_RESET_GAS ( **0x42a0fb43 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
+| op | Uint(32) op |  | 
+| query_id | Uint(64)  |  | 

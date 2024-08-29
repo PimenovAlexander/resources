@@ -217,14 +217,14 @@ Due to new storage organisation and availability of the **dict** data type we do
  
 # Messages 
 
-## POOLV3_DEPLOY 
+## POOLV3_DEPLOY ( **0x923b38fa ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 | admin_addr | Address() |  | 
 
-## POOLV3_INIT 
+## POOLV3_INIT ( **0xc674e474 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -237,7 +237,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 | jetton1_minter | Address() |  | 
 | controller_addr | Address() |  | 
 
-## POOLV3_SET_FEE 
+## POOLV3_SET_FEE ( **0xeee16f7d ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -246,19 +246,19 @@ Due to new storage organisation and availability of the **dict** data type we do
 | lp_fee_base | Uint(16)  |  | 
 | lp_fee_current | Uint(16)  |  | 
 
-## POOLV3_LOCK 
+## POOLV3_LOCK ( **0x878f9b0e ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 
-## POOLV3_UNLOCK 
+## POOLV3_UNLOCK ( **0x6ae4b0ef ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 
-## POOLV3_FUND_ACCOUNT 
+## POOLV3_FUND_ACCOUNT ( **0x91327ded ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -272,19 +272,19 @@ Due to new storage organisation and availability of the **dict** data type we do
 | tickLower | Int(24)    |  | 
 | tickUpper | Int(24)    |  | 
 
-## POOLV3_MINT 
+## POOLV3_MINT ( **0x318f361 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
 | amount0Funded | Coins()   | Amount of jetton 0 recived by router for the mint | 
 | amount1Funded | Coins()   | Amount of jetton 1 recived by router for the mint | 
-| recipient | Address() |  | 
-| liquidity | Uint(128) |  | 
-| tickLower | Int(24)   |  | 
-| tickUpper | Int(24)   |  | 
+| recipient | Address() | Address that would recive the minted NFT, excesses and refunds | 
+| liquidity | Uint(128) | Amount of liquidity to mint | 
+| tickLower | Int(24)   | lower bound of the range in which to mint | 
+| tickUpper | Int(24)   | upper bound of the range in which to mint | 
 
-## POOLV3_START_BURN 
+## POOLV3_START_BURN ( **0x14521b58 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -294,7 +294,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 | tickLower | Int(24)    |  | 
 | tickUpper | Int(24)    |  | 
 
-## POOLV3_BURN 
+## POOLV3_BURN ( **0x55521d04 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -308,7 +308,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 | feeGrowthInside0LastX128 | Uint(256) |  | 
 | feeGrowthInside1LastX128 | Uint(256) |  | 
 
-## POOLV3_SWAP 
+## POOLV3_SWAP ( **0x25938561 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 

@@ -11,23 +11,21 @@
 
 ### Deploy Pool
 
-![](../images/deploy.svg)
-
-<figure><img src="../images/deploy.svg" alt="" width="203"><figcaption></figcaption></figure>
+<figure><img src="../images/deploy.svg" alt="" width="400"><figcaption></figcaption></figure>
 
 ### Init Pool
 
-<figure><img src="../images/init.svg" alt="" width="203"><figcaption></figcaption></figure>
+<figure><img src="../images/init.svg" alt="" width="400"><figcaption></figcaption></figure>
 
 ### Mint
 
-<figure><img src="../images/mint.svg" alt="" width="500"><figcaption></figcaption></figure>
+<figure><img src="../images/mint.svg" alt="" width="800"><figcaption></figcaption></figure>
 
 ### Swap
 
-<figure><img src="../images/swap.svg" alt="" width="500"><figcaption></figcaption></figure>
+<figure><img src="../images/swap.svg" alt="" width="800"><figcaption></figcaption></figure>
 
 ### Burn
 
-<figure><img src="../images/burn.svg" alt="" width="203"><figcaption></figcaption></figure>
+<figure><img src="../images/burn.svg" alt="" width="400"><figcaption></figcaption></figure>
 

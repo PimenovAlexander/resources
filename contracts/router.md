@@ -78,7 +78,7 @@ So if message reaches the pool it means some criterias are satisfied.
  
 # Messages 
 
-## ROUTERV3_CREATE_POOL 
+## ROUTERV3_CREATE_POOL ( **0x2e3034ef ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -86,7 +86,7 @@ So if message reaches the pool it means some criterias are satisfied.
 | jetton_wallet0 | Address() |  | 
 | jetton_wallet1 | Address() |  | 
 
-## ROUTERV3_PAY_TO 
+## ROUTERV3_PAY_TO ( **0xf93bb43f ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -94,6 +94,6 @@ So if message reaches the pool it means some criterias are satisfied.
 | owner | Address() |  | 
 | exit_code | Uint(32)  |  | 
 
-## ROUTERV3_TRANSFER_NOTIFICATION 
+## ROUTERV3_TRANSFER_NOTIFICATION ( **0xf189f909 ** )
 | Mnemonic | Type | Description |
 | --- | --- | --- |
