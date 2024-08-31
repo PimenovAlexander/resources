@@ -94,6 +94,19 @@ Due to new storage organisation and availability of the **dict** data type we do
   * @return12 Current price
   * @return13 Current liquidity
 
+  * @return14  poolv3::feeGrowthGlobal0X128,
+  * @return15  poolv3::feeGrowthGlobal1X128,
+  * @return16 Amount of jetton0 fee collected for protocol owners
+  * @return17 Amount of jetton0 fee collected for protocol owners
+
+  * @return18 Number of total minted NFT positions
+
+  * @return19 Reserves of the jetton0
+  * @return20 Reserves of the jetton1
+
+  * @return21 Number of active NFT positions
+  * @return22 Number of currenty occupied ticks
+
  
 ## getChildContracts
  
@@ -118,8 +131,12 @@ Due to new storage organisation and availability of the **dict** data type we do
   * @param amount
   * @param dir
 
-  * @return0
-  * @return1
+  * @return0 a tuple with keys
+  * @return1 a tuple with corresponding 
+    * liquidityTotal 
+    * liquidityDelta 
+    * outerFeeGrowth0Token
+    * outerFeeGrowth1Token
  
 ## getCollectedFees
  
@@ -213,18 +230,20 @@ Due to new storage organisation and availability of the **dict** data type we do
   
   In accordance with ston.fi interface
 
-  * @return0   
+  
  
 # Messages 
 
-## POOLV3_DEPLOY ( **0x923b38fa ** )
+## POOLV3_DEPLOY
+Opcode : **0x923b38fa** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 | admin_addr | Address() |  | 
 
-## POOLV3_INIT ( **0xc674e474 ** )
+## POOLV3_INIT
+Opcode : **0xc674e474** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -237,7 +256,8 @@ Due to new storage organisation and availability of the **dict** data type we do
 | jetton1_minter | Address() |  | 
 | controller_addr | Address() |  | 
 
-## POOLV3_SET_FEE ( **0xeee16f7d ** )
+## POOLV3_SET_FEE
+Opcode : **0xeee16f7d** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -246,19 +266,22 @@ Due to new storage organisation and availability of the **dict** data type we do
 | lp_fee_base | Uint(16)  |  | 
 | lp_fee_current | Uint(16)  |  | 
 
-## POOLV3_LOCK ( **0x878f9b0e ** )
+## POOLV3_LOCK
+Opcode : **0x878f9b0e** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 
-## POOLV3_UNLOCK ( **0x6ae4b0ef ** )
+## POOLV3_UNLOCK
+Opcode : **0x6ae4b0ef** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 
-## POOLV3_FUND_ACCOUNT ( **0x91327ded ** )
+## POOLV3_FUND_ACCOUNT
+Opcode : **0x91327ded** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -272,10 +295,11 @@ Due to new storage organisation and availability of the **dict** data type we do
 | tickLower | Int(24)    |  | 
 | tickUpper | Int(24)    |  | 
 
-## POOLV3_MINT ( **0x318f361 ** )
+## POOLV3_MINT
+Opcode : **0x318f361** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
-| op | Uint(32) op |  | 
+| op | Uint(32) op | queryid as of the TON documentation | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
 | amount0Funded | Coins()   | Amount of jetton 0 recived by router for the mint | 
 | amount1Funded | Coins()   | Amount of jetton 1 recived by router for the mint | 
@@ -284,7 +308,8 @@ Due to new storage organisation and availability of the **dict** data type we do
 | tickLower | Int(24)   | lower bound of the range in which to mint | 
 | tickUpper | Int(24)   | upper bound of the range in which to mint | 
 
-## POOLV3_START_BURN ( **0x14521b58 ** )
+## POOLV3_START_BURN
+Opcode : **0x14521b58** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -294,7 +319,8 @@ Due to new storage organisation and availability of the **dict** data type we do
 | tickLower | Int(24)    |  | 
 | tickUpper | Int(24)    |  | 
 
-## POOLV3_BURN ( **0x55521d04 ** )
+## POOLV3_BURN
+Opcode : **0x55521d04** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -308,7 +334,8 @@ Due to new storage organisation and availability of the **dict** data type we do
 | feeGrowthInside0LastX128 | Uint(256) |  | 
 | feeGrowthInside1LastX128 | Uint(256) |  | 
 
-## POOLV3_SWAP ( **0x25938561 ** )
+## POOLV3_SWAP
+Opcode : **0x25938561** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 

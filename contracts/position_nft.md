@@ -75,7 +75,8 @@ This is a modifed NFT contract to store user position
  
 # Messages 
 
-## POSITIONNFTV3_POSITION_INIT ( **0xd5ecca2a ** )
+## POSITIONNFTV3_POSITION_INIT
+Opcode : **0xd5ecca2a** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -91,7 +92,8 @@ This is a modifed NFT contract to store user position
 | jetton1Amount | Coins(),Indexer |  | 
 | tick | Int(24),Indexer |  | 
 
-## POSITIONNFTV3_POSITION_BURN ( **0x46ca335a ** )
+## POSITIONNFTV3_POSITION_BURN
+Opcode : **0x46ca335a** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -103,6 +105,7 @@ This is a modifed NFT contract to store user position
 | feeGrowthInside0LastX128 | Uint(256)  |  | 
 | feeGrowthInside1LastX128 | Uint(256)  |  | 
 
-## NFT_TRANSFER,POSITIONNFTV3_NFT_TRANSFER ( **0x5fcc3d14 ** )
+## NFT_TRANSFER,POSITIONNFTV3_NFT_TRANSFER
+Opcode : **0x5fcc3d14** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
