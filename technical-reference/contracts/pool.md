@@ -14,7 +14,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="92">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th>Name</th><th>Description</th></tr>
+<tr><th width="80">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th width="180">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::router_address</td><td>Address of the router contract that created this pool  </tr>
@@ -24,28 +24,29 @@ Due to new storage organisation and availability of the **dict** data type we do
 <tr><td>5</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::jetton0_wallet</td><td>Address of the 0 token in the pool. This is an address of the jetton0 wallet attached to router  </tr>
 <tr><td>6</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::jetton1_wallet</td><td>Address of the 1 token in the pool  This is an address of the jetton0 wallet attached to router  </tr>
 <tr><td>7</td><td>int24</td><td> 24 /  0</td><td>1</td><td>poolv3::tick_spacing</td><td>Spacing of the ticks, 24 bits of signed int would be used  </tr>
-<tr><td>8</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>poolv3::feeGrowthGlobal0X128</td><td>This variable stores current collected fee per the unit of liquidity in jetton0  </tr>
-<tr><td>9</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>poolv3::feeGrowthGlobal1X128</td><td>This variable stores current collected fee per the unit of liquidity in jetton0  </tr>
-<tr><td>10</td><td>uint128</td><td> 128 /  0</td><td>11</td><td>poolv3::collectedProtocolFee0</td><td>Collected protocol fee of the jetton0  </tr>
-<tr><td>11</td><td>uint128</td><td> 128 /  0</td><td>11</td><td>poolv3::collectedProtocolFee1</td><td>Collected protocol fee of the jetton1  </tr>
-<tr><td>12</td><td>coins</td><td> 124 /  0</td><td>11</td><td>poolv3::reserve0</td><td>These are additional separate protection system - it calculates the reserves of the pool <br/>   In case main math has a bug it protects the funds of other pools. Reserve of the jetton0  </tr>
-<tr><td>13</td><td>coins</td><td> 124 /  0</td><td>11</td><td>poolv3::reserve1</td><td>Reserve of the jetton1  </tr>
-<tr><td>14</td><td>uint1</td><td> 1 /  0</td><td>2</td><td>poolv3::pool_active</td><td>Pool acitve flag 0 is inactive, 1 is active  </tr>
-<tr><td>15</td><td>int24</td><td> 24 /  0</td><td>2</td><td>poolv3::tick</td><td>Current tick, signed, 24 bits would be used. Pool maintains it in correspondance to poolv3::price_sqrt  </tr>
-<tr><td>16</td><td>uint160</td><td> 160 /  0</td><td>2</td><td>poolv3::price_sqrt</td><td>Current square root of the price in Q64.96 format using 160 bits  </tr>
-<tr><td>17</td><td>uint128</td><td> 128 /  0</td><td>2</td><td>poolv3::liquidity</td><td>Current active concentrated liquidity in 128 bits  </tr>
-<tr><td>18</td><td>uint24</td><td> 24 /  0</td><td>2</td><td>poolv3::occupied_ticks</td><td>number of occupied ticks in storage  </tr>
-<tr><td>19</td><td>uint64</td><td> 64 /  0</td><td>2</td><td>poolv3::nftv3item_counter</td><td>Pool is also an NFT collection. So this is the counter of currently minted positions  </tr>
-<tr><td>20</td><td>uint64</td><td> 64 /  0</td><td>2</td><td>poolv3::nftv3items_active</td><td>Pool is also an NFT collection. Number of unburnt items  </tr>
-<tr><td>21</td><td>addr</td><td> 267 /  0</td><td>2</td><td>poolv3::admin_address</td><td>Admin address. Can init pool  </tr>
-<tr><td>22</td><td>addr</td><td> 267 /  0</td><td>2</td><td>poolv3::controller_address</td><td>Controller address. Can change fee and lock and unlock pool  </tr>
-<tr><td>23</td><td>addr</td><td> 267 /  0</td><td>21</td><td>poolv3::jetton0_minter</td><td>Address of the 0 token minter. Beta only.  </tr>
-<tr><td>24</td><td>addr</td><td> 267 /  0</td><td>21</td><td>poolv3::jetton1_minter</td><td>Address of the 1 token minter. Beta only.  </tr>
-<tr><td>25</td><td>dict</td><td> 0 /  1</td><td>3</td><td>poolv3::ticks_dictionary</td><td>Storage of the ticks   </tr>
-<tr><td>26</td><td>code</td><td> 0 /  1</td><td>4</td><td>poolv3::accountv3_code</td><td>Pool knows how to create user accounts to store fund pairs for a particular user  </tr>
-<tr><td>27</td><td>code</td><td> 0 /  1</td><td>4</td><td>poolv3::position_nftv3_code</td><td>Pool knows how to create user position. So it stores it's code  </tr>
-<tr><td>28</td><td>cell</td><td> 0 /  1</td><td>4</td><td>poolv3::nftv3_content</td><td>packed metadata that would be given to nft that corresponds to nft colletion  </tr>
-<tr><td>29</td><td>cell</td><td> 0 /  1</td><td>4</td><td>poolv3::nftv3item_content</td><td>packed metadata that would be given to nft that corresponds to the position  </tr>
+<tr><td>8</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>poolv3::seqno</td><td>Used by indexer to ensure that none of pool interactions are skipped  </tr>
+<tr><td>9</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>poolv3::feeGrowthGlobal0X128</td><td>This variable stores current collected fee per the unit of liquidity in jetton0  </tr>
+<tr><td>10</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>poolv3::feeGrowthGlobal1X128</td><td>This variable stores current collected fee per the unit of liquidity in jetton0  </tr>
+<tr><td>11</td><td>uint128</td><td> 128 /  0</td><td>11</td><td>poolv3::collectedProtocolFee0</td><td>Collected protocol fee of the jetton0  </tr>
+<tr><td>12</td><td>uint128</td><td> 128 /  0</td><td>11</td><td>poolv3::collectedProtocolFee1</td><td>Collected protocol fee of the jetton1  </tr>
+<tr><td>13</td><td>coins</td><td> 124 /  0</td><td>11</td><td>poolv3::reserve0</td><td>These are additional separate protection system - it calculates the reserves of the pool <br/>   In case main math has a bug it protects the funds of other pools. Reserve of the jetton0  </tr>
+<tr><td>14</td><td>coins</td><td> 124 /  0</td><td>11</td><td>poolv3::reserve1</td><td>Reserve of the jetton1  </tr>
+<tr><td>15</td><td>uint1</td><td> 1 /  0</td><td>2</td><td>poolv3::pool_active</td><td>Pool acitve flag 0 is inactive, 1 is active  </tr>
+<tr><td>16</td><td>int24</td><td> 24 /  0</td><td>2</td><td>poolv3::tick</td><td>Current tick, signed, 24 bits would be used. Pool maintains it in correspondance to poolv3::price_sqrt  </tr>
+<tr><td>17</td><td>uint160</td><td> 160 /  0</td><td>2</td><td>poolv3::price_sqrt</td><td>Current square root of the price in Q64.96 format using 160 bits  </tr>
+<tr><td>18</td><td>uint128</td><td> 128 /  0</td><td>2</td><td>poolv3::liquidity</td><td>Current active concentrated liquidity in 128 bits  </tr>
+<tr><td>19</td><td>uint24</td><td> 24 /  0</td><td>2</td><td>poolv3::occupied_ticks</td><td>number of occupied ticks in storage  </tr>
+<tr><td>20</td><td>uint64</td><td> 64 /  0</td><td>2</td><td>poolv3::nftv3item_counter</td><td>Pool is also an NFT collection. So this is the counter of currently minted positions  </tr>
+<tr><td>21</td><td>uint64</td><td> 64 /  0</td><td>2</td><td>poolv3::nftv3items_active</td><td>Pool is also an NFT collection. Number of unburnt items  </tr>
+<tr><td>22</td><td>addr</td><td> 267 /  0</td><td>2</td><td>poolv3::admin_address</td><td>Admin address. Can init pool  </tr>
+<tr><td>23</td><td>addr</td><td> 267 /  0</td><td>2</td><td>poolv3::controller_address</td><td>Controller address. Can change fee and lock and unlock pool  </tr>
+<tr><td>24</td><td>addr</td><td> 267 /  0</td><td>21</td><td>poolv3::jetton0_minter</td><td>Address of the 0 token minter. Beta only.  </tr>
+<tr><td>25</td><td>addr</td><td> 267 /  0</td><td>21</td><td>poolv3::jetton1_minter</td><td>Address of the 1 token minter. Beta only.  </tr>
+<tr><td>26</td><td>dict</td><td> 0 /  1</td><td>3</td><td>poolv3::ticks_dictionary</td><td>Storage of the ticks   </tr>
+<tr><td>27</td><td>code</td><td> 0 /  1</td><td>4</td><td>poolv3::accountv3_code</td><td>Pool knows how to create user accounts to store fund pairs for a particular user  </tr>
+<tr><td>28</td><td>code</td><td> 0 /  1</td><td>4</td><td>poolv3::position_nftv3_code</td><td>Pool knows how to create user position. So it stores it's code  </tr>
+<tr><td>29</td><td>cell</td><td> 0 /  1</td><td>4</td><td>poolv3::nftv3_content</td><td>packed metadata that would be given to nft that corresponds to nft colletion  </tr>
+<tr><td>30</td><td>cell</td><td> 0 /  1</td><td>4</td><td>poolv3::nftv3item_content</td><td>packed metadata that would be given to nft that corresponds to the position  </tr>
 </tbody>
 </table>
 
@@ -53,7 +54,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 # Cells 
 | Name |   Size  |   Free  |
 | ---  |  ---    |  ---    |
-| 1  | 873 | 150 | 
+| 1  | 937 | 86 | 
 | 2  | 999 | 24 | 
 | 3  | 0 | 1023 | 
 | 4  | 0 | 1023 | 
@@ -223,41 +224,27 @@ Due to new storage organisation and availability of the **dict** data type we do
 
   * @return0   
  
-## get_pool_data
- 
-(int, int, slice, slice, int, int, int, slice, int, int) get_pool_data ()
- 
-  
-  In accordance with ston.fi interface
-
-  
- 
 # Messages 
 
-## POOLV3_DEPLOY
-Opcode : **0x923b38fa** 
-| Mnemonic | Type | Description |
-| --- | --- | --- |
-| op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
-| admin_addr | Address() |  | 
-
 ## POOLV3_INIT
-Opcode : **0xc674e474** 
+Opcode : **0x441c39ed** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
+| has_admin | UInt(1)  |  | 
+| has_controller | UInt(1)  |  | 
 | tick_spacing | Int(24)    |  | 
-| priceLimitX96 | Uint(160),PriceX96 |  | 
+| initial_priceX96 | Uint(160),PriceX96 | Inital price for the pool | 
+| pool_active | UInt(1)  |  | 
 | nftv3_content | Cell(),Metadata |  | 
 | nftv3item_content | Cell(),Metadata |  | 
+| has_minters | UInt(1)  |  | 
 | jetton0_minter | Address() |  | 
 | jetton1_minter | Address() |  | 
-| controller_addr | Address() |  | 
 
 ## POOLV3_SET_FEE
-Opcode : **0xeee16f7d** 
+Opcode : **0x6bdcbeb8** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -267,21 +254,21 @@ Opcode : **0xeee16f7d**
 | lp_fee_current | Uint(16)  |  | 
 
 ## POOLV3_LOCK
-Opcode : **0x878f9b0e** 
+Opcode : **0x5e74697** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 
 ## POOLV3_UNLOCK
-Opcode : **0x6ae4b0ef** 
+Opcode : **0x3205adbd** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 
 ## POOLV3_FUND_ACCOUNT
-Opcode : **0x91327ded** 
+Opcode : **0x4468de77** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -296,7 +283,7 @@ Opcode : **0x91327ded**
 | tickUpper | Int(24)    |  | 
 
 ## POOLV3_MINT
-Opcode : **0x318f361** 
+Opcode : **0x81702ef8** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op | queryid as of the TON documentation | 
@@ -309,7 +296,7 @@ Opcode : **0x318f361**
 | tickUpper | Int(24)   | upper bound of the range in which to mint | 
 
 ## POOLV3_START_BURN
-Opcode : **0x14521b58** 
+Opcode : **0x530b5f2c** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -320,7 +307,7 @@ Opcode : **0x14521b58**
 | tickUpper | Int(24)    |  | 
 
 ## POOLV3_BURN
-Opcode : **0x55521d04** 
+Opcode : **0xd73ac09d** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -335,7 +322,7 @@ Opcode : **0x55521d04**
 | feeGrowthInside1LastX128 | Uint(256) |  | 
 
 ## POOLV3_SWAP
-Opcode : **0x25938561** 
+Opcode : **0xa7fb58f8** 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 

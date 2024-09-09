@@ -16,14 +16,15 @@ So if message reaches the pool it means some criterias are satisfied.
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="92">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th>Name</th><th>Description</th></tr>
+<tr><th width="80">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th width="180">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>uint1</td><td> 1 /  0</td><td>1</td><td>router::is_locked</td><td>Unused - flag that denotes if the router is locked  </tr>
 <tr><td>2</td><td>addr</td><td> 267 /  0</td><td>1</td><td>router::admin_address</td><td>Admin address. Only this address can create new pools  </tr>
-<tr><td>3</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::poolv3_code</td><td>The cell with the code of the pool, that is needed to create a pool contract  </tr>
-<tr><td>4</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::accountv3_code</td><td>The cell with the code of the account, that is needed to create initial data for pool contract  </tr>
-<tr><td>5</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::position_nftv3_code</td><td>The cell with the code of the user NFT position, that is needed to create initial data for pool contract  </tr>
+<tr><td>3</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>router::pool_seqno</td><td>Number of pools created. Used by indexer to ensure that none of pools are skipped  </tr>
+<tr><td>4</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::poolv3_code</td><td>The cell with the code of the pool, that is needed to create a pool contract  </tr>
+<tr><td>5</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::accountv3_code</td><td>The cell with the code of the account, that is needed to create initial data for pool contract  </tr>
+<tr><td>6</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::position_nftv3_code</td><td>The cell with the code of the user NFT position, that is needed to create initial data for pool contract  </tr>
 </tbody>
 </table>
 
@@ -31,7 +32,7 @@ So if message reaches the pool it means some criterias are satisfied.
 # Cells 
 | Name |   Size  |   Free  |
 | ---  |  ---    |  ---    |
-| 1  | 268 | 755 | 
+| 1  | 332 | 691 | 
 
 # Interface 
 ## getIsLocked
@@ -86,6 +87,13 @@ Opcode : **0x2e3034ef**
 | query_id | Uint(64)  |  | 
 | jetton_wallet0 | Address() |  | 
 | jetton_wallet1 | Address() |  | 
+| tick_spacing | Int(24)   |  | 
+| initial_priceX96 | Uint(160),PriceX96 | Inital price for the pool | 
+| nftv3_content | Cell(),Metadata |  | 
+| nftv3item_content | Cell(),Metadata |  | 
+| jetton0_minter | Address() |  | 
+| jetton1_minter | Address() |  | 
+| controller_addr | Address() |  | 
 
 ## ROUTERV3_PAY_TO
 Opcode : **0xf93bb43f** 
