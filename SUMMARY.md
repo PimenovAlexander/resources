@@ -1,35 +1,23 @@
 # Table of contents
 
-* [TONCO](README.md)
-* [💡 What is TONCO](overview/what-is-tonco.md)
-* [🫂 The Algebra Ecosystem](overview/the-algebra-ecosystem.md)
-* [🧑‍🔬 Algebra TONCO](overview/algebra-tonco.md)
-* [📚 Glossary](overview/glossary.md)
-* [🪙 Tokenomics](overview/tokenomics.md)
-* [📱 Social Media & Links](overview/social-media-links.md)
-* [ℹ️ Intro](overview/intro.md)
-* [🔍 Audits](overview/audits.md)
-* [🏗️ Integration Process](overview/integration-process.md)
-* [🦉 Core Logic](core-logic/README.md)
-  * [🧺 Pool overview](core-logic/pool-overview.md)
-  * [Swap calculation](core-logic/swap-calculation.md)
-  * [💰 Liquidity and positions](core-logic/liquidity-and-positions.md)
-  * [📏 Ticks](core-logic/ticks.md)
-  * [🏦 Reserves](core-logic/reserves.md)
+## Overview
 
-## TONCO V1 / Technical Reference
+* [💡 What is TONCO](README.md)
+* [🫗 Bringing Concentrated Liquidity to TON](overview/bringing-concentrated-liquidity-to-ton.md)
+* [🛣️ Roadmap](overview/roadmap.md)
+* [📱 Social Media](overview/social-media.md)
 
-* [🔏 Contracts](contracts/README.md)
-  * [Pool](contracts/pool.md)
-  * [Router](contracts/router.md)
-  * [Position NFT](contracts/position\_nft.md)
-  * [Account](contracts/account.md)
-  * [Operations](contracts/operations.md)
-* [📊 Subgraph](technical/subgraph.md)
-* [🖥️ Frontend](technical/frontend.md)
-* [⚙️ Backend](technical/backend.md)
-* [⛑️ Guides](technical/guides.md)
+## Technical Reference
 
-## Other
-
-* [❗Link Awareness Notice](other/link-awareness-notice.md)
+* [🦉 Core Logic](technical-reference/core-logic/README.md)
+  * [🧺 Pool overview](technical-reference/core-logic/pool-overview.md)
+  * [Swap calculation](technical-reference/core-logic/swap-calculation.md)
+  * [💰 Liquidity and positions](technical-reference/core-logic/liquidity-and-positions.md)
+  * [📏 Ticks](technical-reference/core-logic/ticks.md)
+  * [🏦 Reserves](technical-reference/core-logic/reserves.md)
+* [🔏 Contracts](technical-reference/contracts/README.md)
+  * [Pool](technical-reference/contracts/pool.md)
+  * [Router](technical-reference/contracts/router.md)
+  * [Position NFT](technical-reference/contracts/position\_nft.md)
+  * [Account](technical-reference/contracts/account.md)
+  * [Operations](technical-reference/contracts/operations.md)
