@@ -8,7 +8,7 @@ icon: shuffle
 
 Algebra AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV2). The internal state of AMM as a system must always satisfy a given invariant, which, in the case of CPF-AMM looks like:
 
-$$X * Y = K$$
+$$X \cdot Y = K$$
 
 Where $$X, Y$$ – token (jetton) reserves, $$K$$ - constant. Jettons are conventionally called jetton1 (Y) and jetton0 (X):
 
@@ -70,8 +70,6 @@ $$F_{amount}^x = X_{input} \cdot fee / 10000$$
 
 $$F_{amount}^y = Y_{input} \cdot fee / 10000$$
 
-
-
 At each iteration of the main swap cycle, the price movement is calculated by taking into account the need to use an appropriate share of the input jettons to pay fees to liquidity providers.
 
 The accumulator value of the following form is used to distribute the accumulated fees among active liquidity providers:
@@ -112,4 +110,3 @@ Given an input/output jetton constraint, target price, current price, commission
 * Required number of input jettons (including fee)
 * Number of output jettons
 * Number of tjettonsokens collected as fee
-

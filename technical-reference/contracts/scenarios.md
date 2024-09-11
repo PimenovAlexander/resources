@@ -1,8 +1,7 @@
-# Scenarios
+# 📜 Scenarios
 
 * Scenarios
-  * [Deploy Pool](scenarios.md#deploy-pool)
-  * [Init Pool](scenarios.md#init-pool)
+  * [Deploy/Init Pool](scenarios.md#deploy-init-pool)
   * [Mint](scenarios.md#mint)
   * [Swap](scenarios.md#swap)
   * [Burn](scenarios.md#burn)
@@ -11,24 +10,24 @@
 
 ### Deploy/Init Pool
 
-Pool deployment is triggered by administrator of the AMM (also the administrator of the router contract). Pool deployment leads to the processing of the POOL\_INIT operation inside pool contract.
+Pool deployment is triggered by administrator of the AMM (also he is  the administrator of the router contract - `router::admin_address`). Pool deployment leads to the processing of the POOLV3\_INIT operation inside pool contract.
 
-This operation is used both - during the initial deployment of the pool and it pool administrator wants to change some crucial parameters. 
-Pool deployment consists of two stages 
-I. Forming and sending state_init that holds
-  * Router address
-  * Jetton0/Jetton1 wallet addresses (these are attached to the router)
-  * Account contract code
-  * Position NFT contract code
+This operation is used both - during the initial deployment of the pool and it pool administrator wants to change some crucial parameters. Pool deployment consists of two stages&#x20;
 
-Next newly created pool would only accept init message from the router and admin(which is set to BLACK_HOLE in state_init). No operations (except for POOL_INIT) would be processed while admin is BLACK_HOLE_ADDRESS.
+I. Forming and sending state\_init data that holds
 
-This ensures that only thing that could activate pool  is the init operation sent by the pool
+* Router address
+* Jetton0/Jetton1 wallet addresses (these are attached to the router)
+* Account contract code
+* Position NFT contract code
 
-II. state_init message holds as a body POOL_INIT operation
+Next newly created pool would only accept init message from the router and admin(which is set to BLACK\_HOLE\_ADDRESS in state\_init). No operations (except for [POOLV3\_INIT](pool.md#poolv3\_init)) would be processed while admin is BLACK\_HOLE\_ADDRESS.
+
+This ensures that only thing that could activate pool is the init operation sent by the pool
+
+II. state\_init message holds as a body [POOLV3\_INIT](pool.md#poolv3\_init) operation
 
 This message will be accepted and sets all the data that is needed for pool operation, including optional flag that would activate the pool and make it available for mints and swaps
-
 
 <figure><img src="../../images/init.svg" alt="" width="400"><figcaption></figcaption></figure>
 
