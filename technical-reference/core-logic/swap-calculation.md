@@ -4,17 +4,15 @@ icon: shuffle
 
 # Swap calculation
 
-Relevant and important files:
-
-* **TBD**
-
 ### AMM Base
 
 Algebra AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV2). The internal state of AMM as a system must always satisfy a given invariant, which, in the case of CPF-AMM looks like:
 
 $$X * Y = K$$
 
-Where $$X, Y$$ – “token reserves”, $$K$$ - constant. Tokens are conventionally called token1 (Y) and token0 (X): $$address(token1) \gt address(token0)$$.
+Where $$X, Y$$ – “token reserves”, $$K$$ - constant. Tokens are conventionally called token1 (Y) and token0 (X): 
+
+**slice_hash(jetton0_address) > slice_hash(jetton1_address)**.
 
 Uniswap V3 transformed the system to a new form. While preserving the basic invariant, two new values are introduced:
 
@@ -26,7 +24,7 @@ At each point in time, the state of the AMM as a dynamic system is given by thes
 
 $$\Delta \sqrt P = \Delta Y / L$$
 
-$$\Delta 1 / \sqrt P = \Delta X / L$$
+$$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
 Where $$X$$ is the balance change of token0 at the pool, and $$Y$$is the balance change of token1 at the pool. Thus, a change in the price root "generates" the movement of tokens in and out of the pool. Basically, swap can be described as a process of "movement" of the price to some value.
 
@@ -38,10 +36,10 @@ However, the peculiarity of AMM Algebra is concentrated liquidity - in the cours
 
 In each tick is recorded the value of $$L$$, which should be added/subtracted to the liquidity, depending on the direction in which the tick crosses (left to right or right to left). Due to this, the whole swap process is represented as a price movement towards the next active tick (to the right or left depending on the swap direction - zeroToOne to the left/down, oneToZero to the right/up). If the price reaches an active tick, the current liquidity changes and the movement continues to the next tick:
 
-1. Find out the current price (P\_current)
-2. Find out the price on the next active tick (P\_next)
-3. Calculate token entry and exit for price movement to (P\_next)
-4. If token input/output does not exceed the input conditions, then cross the tick and change the current liquidity value. P\_current := P\_next. Return to step 2.
+1. Find out the current price ($$P_{current}$$)
+2. Find out the price on the next active tick ($$P_{next}$$)
+3. Calculate token entry and exit for price movement to ($$P_{next}$$)
+4. If token input/output does not exceed the input conditions, then cross the tick and change the current liquidity value. $$P_{current} := P_{next}$$. Return to step 2.
 5. If there is unspent token input/output left, determine to what price the current price can be moved to using the remaining stock.
 
 So as it is possible, the price moves from tick to tick, and then its movement stops somewhere between ticks, depending on the set number of tokens on the input or output of the swap.
@@ -52,7 +50,7 @@ So as it is possible, the price moves from tick to tick, and then its movement s
 
 **exactInput** - swap should use no more input tokens than specified.
 
-**exactOutput** - the swap should output no more tokens than specified.
+*(due to TON architecture v1 TONCO doesn't support exactOutput - the swap should output no more tokens than specified.)*
 
 #### Restriction on price changes
 
@@ -70,11 +68,10 @@ The protocol is supported by the use of liquidity (tokens), which is provided by
 
 Fees value is set as a fraction of the sum of tokens at the input of the swap and is a constant during the swap.
 
-$$F_{amount}^x = X_{input} * fee / 10000$$
+$$F_{amount}^x = X_{input} \cdot fee / 10000$$
 
 
-
-$$F_{amount}^y = Y_{input} * fee / 10000$$
+$$F_{amount}^y = Y_{input} \cdot / 10000$$
 
 At each iteration of the main swap cycle, the price movement is calculated by taking into account the need to use an appropriate share of the input tokens to pay fees to liquidity providers.
 
@@ -84,11 +81,11 @@ $$totalFeeGrowth = F_{amount} / L$$
 
 Each swap, or rather each iteration within the main swap cycle, increases this accumulator by a new summand. Further, liquidity providers get their share of the collected commissions by multiplying their contribution to liquidity by the corresponding delta of the values of this accumulator (more detailed description in [the article about positions and liquidity](liquidity-and-positions.md)).
 
-#### CommunityFee
+#### Protocol Fee
 
-The protocol also takes a portion of the fees for itself. This share of fees in Algebra Integral is called communityFee. CommunityFee is calculated as a fraction of also within each iteration of the main swap cycle:
+The protocol also takes a portion of the fees for itself. This share of fees in Algebra Integral is called **Protocol Fee**. Protocol fee is calculated as a fraction of also within each iteration of the main swap cycle:
 
-$$communityFeeAmount = F_{amount} * communityFee / 1000$$
+$$protocolFeeAmount = F_{amount} * protocolFee / 10000$$
 
 #### Token Delta Math
 
@@ -96,15 +93,15 @@ This library implements token delta calculations using the formulas mentioned ab
 
 $$\Delta \sqrt P = \Delta Y / L$$
 
-$$\Delta 1 / \sqrt P = \Delta X / L$$
+$$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
 Accordingly, X is called token0Delta and Y is called token1Delta.
 
 To obtain deltas, the formulas are converted to the following form:
 
-$$\Delta Y = (\sqrt P_1 - \sqrt P_0 )* L$$
+$$\Delta Y = (\sqrt P_1 - \sqrt P_0 )\cdot L$$
 
-$$\Delta X = (\sqrt P_0 - \sqrt P_1 )* L / ( \sqrt P_0 * \sqrt P_1)$$
+$$\Delta X = (\sqrt P_0 - \sqrt P_1 )\cdot {L \over ( \sqrt P_0 \cdot \sqrt P_1)} $$
 
 #### Price Movement Math
 
@@ -113,9 +110,9 @@ A key component of this library is the movePriceTowardsTarget method, which prov
 Given an input/output token constraint, target price, current price, commission value, and swap direction, the method determines:
 
 * The price value resulting from the price movement
-* Required number of input tokens (including commission)
+* Required number of input tokens (including fee)
 * Number of output tokens
-* Number of tokens collected as commission
+* Number of tokens collected as fee
 
 ####
 

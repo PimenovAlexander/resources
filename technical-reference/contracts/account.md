@@ -13,7 +13,7 @@
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="80">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th width="180">Name</th><th>Description</th></tr>
+<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="200">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>account::user_address</td><td>Address of the user ton wallet of the user that owns this two jetton account  </tr>

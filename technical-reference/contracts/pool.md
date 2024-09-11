@@ -14,7 +14,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="80">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th width="180">Name</th><th>Description</th></tr>
+<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="200">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::router_address</td><td>Address of the router contract that created this pool  </tr>
@@ -233,7 +233,9 @@ Opcode : **0x441c39ed**
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
 | has_admin | UInt(1)  |  | 
+| admin_addr | Address() |  | 
 | has_controller | UInt(1)  |  | 
+| controller_addr | Address() |  | 
 | tick_spacing | Int(24)    |  | 
 | initial_priceX96 | Uint(160),PriceX96 | Inital price for the pool | 
 | pool_active | UInt(1)  |  | 

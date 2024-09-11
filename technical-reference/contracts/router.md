@@ -16,7 +16,7 @@ So if message reaches the pool it means some criterias are satisfied.
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="80">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="64">Cell</th><th width="180">Name</th><th>Description</th></tr>
+<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="200">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>uint1</td><td> 1 /  0</td><td>1</td><td>router::is_locked</td><td>Unused - flag that denotes if the router is locked  </tr>

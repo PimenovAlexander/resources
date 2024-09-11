@@ -16,7 +16,7 @@ A change in the current price in the pool (via swaps) entails the movement of to
 
 $$\Delta \sqrt P = \Delta Y / L$$
 
-$$\Delta 1 / \sqrt P = \Delta X / L$$
+$$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
 Thus, the liquidity $$L$$ can be defined as a coefficient that determines the "speed" of price change when tokens are swapped. Change of $$\sqrt P$$ (or $$1 / \sqrt P$$, depending on the direction of swap) is inversely proportional to liquidity. This means that the greater the liquidity, the more tokens need to be swapped to move the price by a given value.
 
@@ -47,23 +47,23 @@ This means that a liquidity position must, on the one hand, provide enough token
 
 #### Correlation between the liquidity value and the amount of tokens
 
-ТThen we can express the correlation between the number of tokens and $$\Delta L$$, if $$\sqrt P_{current}$$ is inside the price range of the position:
+ТThen we can express the correlation between the number of tokens and $$\Delta L$$, if $$\sqrt {P_{current}}$$ is inside the price range of the position:
 
-$$\Delta X = - (1 / \sqrt P_{top} - 1 / \sqrt P_{current}) * \Delta L$$
+$$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{current}}) \cdot \Delta L$$
 
-$$\Delta Y = - (\sqrt P_{bottom} - \sqrt P_{current}) * \Delta L$$
+$$\Delta Y = - (\sqrt {P_{bottom}} - \sqrt {P_{current}}) \cdot \Delta L$$
 
 If$$\sqrt P_{current}$$ is not inside the position's price range, the amount of tokens associated with the position must cover price movement in one direction only (depending on the position of the current price).
 
-If the current price is higher than the upper price of the position ( $$\sqrt P_{current} \ge \sqrt P_{top}$$):
+If the current price is higher than the upper price of the position ( $$\sqrt {P_{current}} \ge \sqrt {P_{top}}$$):
 
 $$\Delta X = 0$$
 
-$$\Delta Y = - ( \sqrt P_{top} - \sqrt P_{bottom}) * \Delta L$$
+$$\Delta Y = - ( \sqrt {P_{top}} - \sqrt {P_{bottom}}) * \Delta L$$
 
 If the current price is below the price range of the position ( $$\sqrt P_{current} \lt \sqrt P_{bottom}$$ ):
 
-$$\Delta X = - (1 / \sqrt P_{top} - 1 / \sqrt P_{bottom}) * \Delta L$$
+$$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{bottom}}) * \Delta L$$
 
 $$\Delta Y = 0$$
 
@@ -95,8 +95,8 @@ $$innerFeeGrowthToken1_{old}$$ - accumulator increment for token1 that occurred 
 
 Then the amount of tokens that correspond to the share of the fees for a liquidity position can be calculated at any time:
 
-$$\Delta fees_x = \Delta L *(innerFeeGrowthToken0_{new} - innerFeeGrowthToken0_{old})$$
+$$\Delta fees_x = \Delta L \cdot (innerFeeGrowthToken0_{new} - innerFeeGrowthToken0_{old})$$
 
-$$\Delta fees_y = \Delta L *(innerFeeGrowthToken1_{new} - innerFeeGrowthToken1_{old})$$
+$$\Delta fees_y = \Delta L \cdot (innerFeeGrowthToken1_{new} - innerFeeGrowthToken1_{old})$$
 
 This is followed by an update of $$innerFeeGrowthToken0_{old}$$ and $$innerFeeGrowthToken1_{old}$$
