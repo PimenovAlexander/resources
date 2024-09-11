@@ -8,7 +8,7 @@ Relevant and important files:
 
 The entire price space is divided into sections using special cut-offs called ticks.
 
-<figure><img src="../../.gitbook/assets/image%20(1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ticks0.png" alt=""><figcaption></figcaption></figure>
 
 The ticks are distributed logarithmically: the tick with index i corresponds to the price:
 
@@ -56,17 +56,17 @@ $$outerFeeGrowth1Token_{new} = totalFeeGrowthToken1 - outerFeeGrowth1Token_{old}
 
 This ensures that, knowing the current global tick, it is possible at any time to determine what token increment has occurred "on the other side" since the tick was initialised:
 
-<figure><img src="../../.gitbook/assets/image%20(4).png" alt="" width="563"><figcaption><p>outerFeeGrowth - commission accumulator increment "on the other side" from tick N</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ticks3.png" alt="" width="563"><figcaption><p>outerFeeGrowth - commission accumulator increment "on the other side" from tick N</p></figcaption></figure>
 
 At the same time, the pool possesses the accumulator values `totalFeeGrowthToken0` and `totalFeeGrowthToken1`, which contain the total commission increment for the entire time of the pool's existence.
 
-<figure><img src="../../.gitbook/assets/image%20(5).png" alt="" width="563"><figcaption><p>totalFeeGrowth - total fee / L growth for the entire pool lifetime</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ticks4.png" alt="" width="563"><figcaption><p>totalFeeGrowth - total fee / L growth for the entire pool lifetime</p></figcaption></figure>
 
 Due to these values, it is easy to calculate the value of the commission increment that occurred within a given range of ticks after their initialisation.
 
 If $$tick_K \le currentTick \lt tick_N$$:
 
-<figure><img src="../../.gitbook/assets/image%20(6).png" alt="" width="563"><figcaption><p>innerFeeGrowth - increment of accumulator fee / L from the moment of ticks initialisation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ticks5.png" alt="" width="563"><figcaption><p>innerFeeGrowth - increment of accumulator fee / L from the moment of ticks initialisation</p></figcaption></figure>
 
 If $$tick_K \lt tick_N \le currentTick$$:
 
@@ -80,9 +80,7 @@ $$innerFeeGrowth_{K, N} = outerFeeGrowth_K - outerFeeGrowth_N$$
 
 $$\Delta fee_{position} = \Delta L_{position} * \Delta innerFeeFrowth _{position}$$
 
-_Note_: _a similar mechanism can be used in plugins to implement time tracking within a range of ticks, distribute additional rewards, etc._\
-\
-\
+
 The corresponding bit at the root is 1 if the corresponding second-level word has at least one active bit.
 
 The maximum allowed tick is **887272**
