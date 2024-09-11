@@ -10,9 +10,9 @@ Algebra AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV
 
 $$X * Y = K$$
 
-Where $$X, Y$$ – “token reserves”, $$K$$ - constant. Tokens are conventionally called token1 (Y) and token0 (X): 
+Where $$X, Y$$ – “token reserves”, $$K$$ - constant. Tokens are conventionally called token1 (Y) and token0 (X):
 
-**slice_hash(jetton0_address) > slice_hash(jetton1_address)**.
+**slice\_hash(jetton0\_address) > slice\_hash(jetton1\_address)**.
 
 Uniswap V3 transformed the system to a new form. While preserving the basic invariant, two new values are introduced:
 
@@ -50,15 +50,13 @@ So as it is possible, the price moves from tick to tick, and then its movement s
 
 **exactInput** - swap should use no more input tokens than specified.
 
-*(due to TON architecture v1 TONCO doesn't support exactOutput - the swap should output no more tokens than specified.)*
+_(due to TON architecture v1 TONCO doesn't support exactOutput - the swap should output no more tokens than specified.)_
 
 #### Restriction on price changes
 
 Additionally, the parameter limitSqrtPrice is taken into account when calculating the swap, which imposes a limit on the possible price movement - if the price reaches this value, the swap is stopped.
 
 This parameter allows to simplify some scenarios of AMM usage, including arbitrage or token price adjustment.
-
-\\
 
 ### Fees calculation
 
@@ -70,8 +68,9 @@ Fees value is set as a fraction of the sum of tokens at the input of the swap an
 
 $$F_{amount}^x = X_{input} \cdot fee / 10000$$
 
+$$F_{amount}^y = Y_{input} \cdot fee / 10000$$
 
-$$F_{amount}^y = Y_{input} \cdot / 10000$$
+
 
 At each iteration of the main swap cycle, the price movement is calculated by taking into account the need to use an appropriate share of the input tokens to pay fees to liquidity providers.
 
@@ -85,7 +84,7 @@ Each swap, or rather each iteration within the main swap cycle, increases this a
 
 The protocol also takes a portion of the fees for itself. This share of fees in Algebra Integral is called **Protocol Fee**. Protocol fee is calculated as a fraction of also within each iteration of the main swap cycle:
 
-$$protocolFeeAmount = F_{amount} * protocolFee / 10000$$
+$$protocolFeeAmount = F_{amount} \cdot protocolFee / 10000$$
 
 #### Token Delta Math
 
@@ -101,7 +100,7 @@ To obtain deltas, the formulas are converted to the following form:
 
 $$\Delta Y = (\sqrt P_1 - \sqrt P_0 )\cdot L$$
 
-$$\Delta X = (\sqrt P_0 - \sqrt P_1 )\cdot {L \over ( \sqrt P_0 \cdot \sqrt P_1)} $$
+$$\Delta X = (\sqrt P_0 - \sqrt P_1 )\cdot {L \over ( \sqrt P_0 \cdot \sqrt P_1)}$$
 
 #### Price Movement Math
 

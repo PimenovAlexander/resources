@@ -1,9 +1,5 @@
 # 💰 Liquidity and positions
 
-Relevant and important files:
-
-* **TBD**
-
 ### Definition of liquidity
 
 As stated in [the article about swap calculations](swap-calculation.md), the internal state of the AMM Algebra at any moment is determined by two values:
@@ -22,38 +18,39 @@ Thus, the liquidity $$L$$ can be defined as a coefficient that determines the "s
 
 ### Liquidity position
 
-Algebra Integral is based on the concept of concentrated liquidity. This means that users can provide their tokens as liquidity for swaps at a certain price range. The following describes what this means and how the value of liquidity is related to tokens.
+TONCO is based on the concept of concentrated liquidity. This means that users can provide their tokens as liquidity for swaps at a certain price range. The following describes what this means and how the value of liquidity is related to tokens.
 
 A liquidity position in Algebra Integral is an entity defined by the following parameters:
 
 1. Position owner
-2. Lower tick - the tick corresponding to the lowest price at which the liquidity of this position can be used
-3. The upper tick is the tick corresponding to the highest price at which the liquidity of this position can be used
-4. $$\Delta L$$ - liquidity value associated with this position
+2. Pool to which the position belongs
+3. `Lower tick` - the tick corresponding to the lowest price at which the liquidity of this position can be used
+4. `Upper tick` - is the tick corresponding to the highest price at which the liquidity of this position can be used
+5. `Liquidity` - $$\Delta L$$ - liquidity value associated with this position
 
 The liquidity value associated with the position $$\Delta L$$ adds to the global liquidity value when the position becomes active (price inside the specified tick range) and subtracted from the global liquidity value when the position becomes inactive (price outside the specified tick range). These changes take place during the [swap](swap-calculation.md) on the crossing of position-related [ticks](ticks.md).
 
 Thus, the value $$\Delta L$$ must ensure the fulfillment of the formulas from the [liquidity definition](liquidity-and-positions.md#definition-of-liquidity) section on the price range defined by the upper and lower tick of the position. Then the correlation between the number of tokens and $$\Delta L$$ can be obtained as follows. Let:
 
-$$\sqrt P_{top}$$ - the price root value corresponding to the upper tick of the position.
+$$\sqrt {P_{top}}$$ - the price root value corresponding to the upper tick of the position.
 
-$$\sqrt P_{bottom}$$ - the price root value corresponding to the lower tick of the position.
+$$\sqrt {P_{bottom}}$$ - the price root value corresponding to the lower tick of the position.
 
-$$\sqrt P_{current}$$ - the current value of the price root in the pool.
+$$\sqrt {P_{current}}$$ - the current value of the price root in the pool.
 
 Note that during the upward price movement (oneToZero) the pool buys token1 (Y) and sells token0 (X). On the other hand, during the downward price movement (zeroToOne) the pool buys token0 and sells token1.
 
-This means that a liquidity position must, on the one hand, provide enough token0 for the sale to move the price up to the $$\sqrt P_{top}$$, and, on the other hand, provide for sale a sufficient amount of token1 to move the price to $$\sqrt P_{bottom}$$ .
+This means that a liquidity position must, on the one hand, provide enough token0 for the sale to move the price up to the $$\sqrt {P_{top}}$$, and, on the other hand, provide for sale a sufficient amount of token1 to move the price to $$\sqrt {P_{bottom}}$$ .
 
-#### Correlation between the liquidity value and the amount of tokens
+#### Correlation between the liquidity value and the amount of tokens(jettons)
 
-ТThen we can express the correlation between the number of tokens and $$\Delta L$$, if $$\sqrt {P_{current}}$$ is inside the price range of the position:
+Then we can express the correlation between the number of jettons and $$\Delta L$$, if $$\sqrt {P_{current}}$$ is inside the price range of the position:
 
 $$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{current}}) \cdot \Delta L$$
 
 $$\Delta Y = - (\sqrt {P_{bottom}} - \sqrt {P_{current}}) \cdot \Delta L$$
 
-If$$\sqrt P_{current}$$ is not inside the position's price range, the amount of tokens associated with the position must cover price movement in one direction only (depending on the position of the current price).
+If$$\sqrt P_{current}$$ is not inside the position's price range, the amount of jettons associated with the position must cover price movement in one direction only (depending on the position of the current price).
 
 If the current price is higher than the upper price of the position ( $$\sqrt {P_{current}} \ge \sqrt {P_{top}}$$):
 
@@ -61,15 +58,15 @@ $$\Delta X = 0$$
 
 $$\Delta Y = - ( \sqrt {P_{top}} - \sqrt {P_{bottom}}) * \Delta L$$
 
-If the current price is below the price range of the position ( $$\sqrt P_{current} \lt \sqrt P_{bottom}$$ ):
+If the current price is below the price range of the position ( $$\sqrt {P_{current}} \lt \sqrt {P_{bottom}}$$ ):
 
 $$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{bottom}}) * \Delta L$$
 
 $$\Delta Y = 0$$
 
-Thus, when creating a position with the given $$\Delta L$$, $$\sqrt P_{top}$$, $$\sqrt P_{bottom}$$ user must provide $$\Delta X$$token0 and $$\Delta Y$$token1, calculated according to the above formulas taking into account the current price in the pool.
+Thus, when creating a position with the given $$\Delta L$$, $$\sqrt {P_{top}}$$, $$\sqrt {P_{bottom}}$$ user must provide $$\Delta X$$jetton0 and $$\Delta Y$$jetton1, calculated according to the above formulas taking into account the current price in the pool.
 
-On the other hand, when withdrawing liquidity, the user should receive$$\Delta X$$token0 and $$\Delta Y$$token1, also calculated using the same formulas considering the current price and the change in $$\Delta L$$.
+On the other hand, when withdrawing liquidity, the user should receive$$\Delta X$$jetton0 and $$\Delta Y$$jetton1, also calculated using the same formulas considering the current price and the change in $$\Delta L$$.
 
 ### Fee distribution between liquidity positions
 
