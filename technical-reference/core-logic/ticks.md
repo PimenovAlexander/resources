@@ -28,37 +28,37 @@ To simplify navigation through ticks during swaps and for other purposes,  activ
 
 Ticks play an important role in allocating the commission between liquidity positions. The accumulator values described in [the article on liquidity and positions](liquidity-and-positions.md) are used for this purpose:
 
-$$totalFeeGrowthToken0 = \sum F^x_{amount} / L_t$$
+$$totalFeeGrowthJetton0 = \sum F^x_{amount} / L_t$$
 
-$$totalFeeGrowthToken1 = \sum F^y_{amount} / L_t$$
+$$totalFeeGrowthJetton1 = \sum F^y_{amount} / L_t$$
 
-Two additional values are stored in each tick that correspond to the accumulator increments "outside" the ticks: `outerFeeGrowth0Token`, `outerFeeGrowth1Token`.
+Two additional values are stored in each tick that correspond to the accumulator increments "outside" the ticks: `outerFeeGrowth0Jetton`, `outerFeeGrowth1Jetton`.
 
 These values have a relative character and are set at the moment of tick initialisation according to the following rule: it is presumed that the entire "increment" of the commission accumulator occurred **below** this tick. For this reason, the values are initialised as follows:
 
 If the tick to be initialised is less than or equal to the global tick at the moment$$(tick \le currentTick)$$:
 
-$$outerFeeGrowth0Token = totalFeeGrowthToken0$$
+$$outerFeeGrowth0Jetton = totalFeeGrowthJetton0$$
 
-$$outerFeeGrowth1Token = totalFeeGrowthToken1$$
+$$outerFeeGrowth1Jetton = totalFeeGrowthJetton1$$
 
 On the other hand, if the tick to be initialised is above the current global tick $$(tick \gt currentTick)$$, then the corresponding values are initialised to zero:
 
-$$outerFeeGrowth0Token = 0$$
+$$outerFeeGrowth0Jetton = 0$$
 
-$$outerFeeGrowth1Token = 0$$
+$$outerFeeGrowth1Jetton = 0$$
 
 Later on, at each tick crossing these values are updated according to the following rule:
 
-$$outerFeeGrowth0Token_{new} = totalFeeGrowthToken0 - outerFeeGrowth0Token_{old}$$
+$$outerFeeGrowth0Jetton_{new} = totalFeeGrowthJetton0 - outerFeeGrowth0Jetton_{old}$$
 
-$$outerFeeGrowth1Token_{new} = totalFeeGrowthToken1 - outerFeeGrowth1Token_{old}$$
+$$outerFeeGrowth1Jetton_{new} = totalFeeGrowthJetton1 - outerFeeGrowth1Jetton_{old}$$
 
-This ensures that, knowing the current global tick, it is possible at any time to determine what token increment has occurred "on the other side" since the tick was initialised:
+This ensures that, knowing the current global tick, it is possible at any time to determine what jetton increment has occurred "on the other side" since the tick was initialised:
 
 <figure><img src="../../.gitbook/assets/ticks3.png" alt="" width="563"><figcaption><p>outerFeeGrowth - commission accumulator increment "on the other side" from tick N</p></figcaption></figure>
 
-At the same time, the pool possesses the accumulator values `totalFeeGrowthToken0` and `totalFeeGrowthToken1`, which contain the total commission increment for the entire time of the pool's existence.
+At the same time, the pool possesses the accumulator values `totalFeeGrowthJetton0` and `totalFeeGrowthJetton1`, which contain the total commission increment for the entire time of the pool's existence.
 
 <figure><img src="../../.gitbook/assets/ticks4.png" alt="" width="563"><figcaption><p>totalFeeGrowth - total fee / L growth for the entire pool lifetime</p></figcaption></figure>
 
