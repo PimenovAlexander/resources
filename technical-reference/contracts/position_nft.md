@@ -12,7 +12,7 @@ This is a modifed NFT contract to store user position
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="200">Name</th><th>Description</th></tr>
+<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="280">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>positionv3::index</td><td>The position number. Also the nft index  </tr>
@@ -77,6 +77,7 @@ This is a modifed NFT contract to store user position
 
 ## POSITIONNFTV3_POSITION_INIT
 Opcode : **0xd5ecca2a** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -94,6 +95,7 @@ Opcode : **0xd5ecca2a**
 
 ## POSITIONNFTV3_POSITION_BURN
 Opcode : **0x46ca335a** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -107,5 +109,6 @@ Opcode : **0x46ca335a**
 
 ## NFT_TRANSFER,POSITIONNFTV3_NFT_TRANSFER
 Opcode : **0x5fcc3d14** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |

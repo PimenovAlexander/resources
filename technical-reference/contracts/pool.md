@@ -14,7 +14,7 @@ Due to new storage organisation and availability of the **dict** data type we do
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="200">Name</th><th>Description</th></tr>
+<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="280">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::router_address</td><td>Address of the router contract that created this pool  </tr>
@@ -228,25 +228,27 @@ Due to new storage organisation and availability of the **dict** data type we do
 
 ## POOLV3_INIT
 Opcode : **0x441c39ed** 
+First mandatory operation that fills crucial parameters of the pool
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  |  | 
-| has_admin | UInt(1)  |  | 
-| admin_addr | Address() |  | 
-| has_controller | UInt(1)  |  | 
-| controller_addr | Address() |  | 
-| tick_spacing | Int(24)    |  | 
+| has_admin | UInt(1)  | Flag that shows if this message have a new admin address | 
+| admin_addr | Address() | New address of the admin | 
+| has_controller | UInt(1)  | Flag that shows if this message have a new controller address | 
+| controller_addr | Address() | Address that is allowed to change the fee. Can always be updated by admin | 
+| tick_spacing | Int(24)    | Tick spaceing to be used in the pool | 
 | initial_priceX96 | Uint(160),PriceX96 | Inital price for the pool | 
-| pool_active | UInt(1)  |  | 
+| pool_active | UInt(1)  | Flag is we should start the pool as unlocked | 
 | nftv3_content | Cell(),Metadata |  | 
 | nftv3item_content | Cell(),Metadata |  | 
 | has_minters | UInt(1)  |  | 
-| jetton0_minter | Address() |  | 
-| jetton1_minter | Address() |  | 
+| jetton0_minter | Address() | Address of the jetton0 minter, used by indexer and frontend | 
+| jetton1_minter | Address() | Address of the jetton1 minter, used by indexer and frontend | 
 
 ## POOLV3_SET_FEE
 Opcode : **0x6bdcbeb8** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -257,6 +259,7 @@ Opcode : **0x6bdcbeb8**
 
 ## POOLV3_LOCK
 Opcode : **0x5e74697** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -264,6 +267,7 @@ Opcode : **0x5e74697**
 
 ## POOLV3_UNLOCK
 Opcode : **0x3205adbd** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -271,6 +275,7 @@ Opcode : **0x3205adbd**
 
 ## POOLV3_FUND_ACCOUNT
 Opcode : **0x4468de77** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -286,9 +291,10 @@ Opcode : **0x4468de77**
 
 ## POOLV3_MINT
 Opcode : **0x81702ef8** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
-| op | Uint(32) op | queryid as of the TON documentation | 
+| op | Uint(32) op |  | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
 | amount0Funded | Coins()   | Amount of jetton 0 recived by router for the mint | 
 | amount1Funded | Coins()   | Amount of jetton 1 recived by router for the mint | 
@@ -299,6 +305,7 @@ Opcode : **0x81702ef8**
 
 ## POOLV3_START_BURN
 Opcode : **0x530b5f2c** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -310,6 +317,7 @@ Opcode : **0x530b5f2c**
 
 ## POOLV3_BURN
 Opcode : **0xd73ac09d** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -325,6 +333,7 @@ Opcode : **0xd73ac09d**
 
 ## POOLV3_SWAP
 Opcode : **0xa7fb58f8** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 

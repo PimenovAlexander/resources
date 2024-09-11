@@ -13,7 +13,7 @@
 # Data Storage 
 <table data-full-width="true">
 <thead>
-<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="200">Name</th><th>Description</th></tr>
+<tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="280">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
 <tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>account::user_address</td><td>Address of the user ton wallet of the user that owns this two jetton account  </tr>
@@ -52,6 +52,7 @@
 
 ## ACCOUNTV3_ADD_LIQUIDITY
 Opcode : **0x3ebe5431** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -66,6 +67,7 @@ Opcode : **0x3ebe5431**
 
 ## ACCOUNTV3_RESET_GAS
 Opcode : **0x42a0fb43** 
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
