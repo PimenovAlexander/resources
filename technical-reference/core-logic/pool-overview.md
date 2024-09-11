@@ -35,8 +35,6 @@ The main purpose of the pool is to enable swaps using concentrated liquidity.Bel
 
 The main task of AMM is to provide token swap. Swapping in TONCO is performed using concentrated liquidity technology. More detailed description of the swap process [the article about swap calculations](swap-calculation.md).
 
-In Algebra Integral there are two variants of swap - with prepayment and with payment after settlement.
-
 Due to TON architecture jettons for the swap and gas are first sent by the user and after swap computations are finished they would get the swap result, initial jetton change(if any) and excess gas back. Front-end helps to compute how many jettons and gas should be sent.
 
 #### Liquidity positions
@@ -52,7 +50,7 @@ Basic actions with liquidity positions:
 
 #### Pool Customization
 
-Each Algebra Integral pool has a number of parameters that can be changed by the protocol team, DAO or authorized persons. Persons authorized to change pool (each has own limitations) :
+Each TONCO AMM pool has a number of parameters that can be changed by the protocol team, DAO or authorized persons. Persons authorized to change pool (each has own limitations) :
 
 1. DEX Administrator (Router administrator)
 2. Pool Administrator
@@ -60,7 +58,7 @@ Each Algebra Integral pool has a number of parameters that can be changed by the
 
 Customizable parameters:
 
-* `lock/unlock` - way to temporary stop the mint and swap in the pool. burn/burn0 operation are always available&#x20;
+* `lock/unlock` - way to temporary stop the mint and swap in the pool. burn/burn0 operation are always available
 * `protocolFee` - share of the collected fee that is available to administrator for the needs of the protocol.
 * `tickSpacing` - limit on ticks that can be used as boundaries of the liquidity position. New liquidity can only be added to positions whose upper and lower ticks are divided wholly by `tickSpacing`. This means that if `tickSpacing` is equal to 60, then only every 60th tick (... -60, 0, 60 ...) can be used as a new liquidity position boundary.
 * `fee` - the commission for swaps in the pool can be changed manually or from authorized backend.
