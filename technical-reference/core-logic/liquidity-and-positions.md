@@ -2,13 +2,13 @@
 
 ### Definition of liquidity
 
-As stated in [the article about swap calculations](swap-calculation.md), the internal state of the AMM Algebra at any moment is determined by two values:
+As stated in [the article about swap calculations](swap-calculation.md), the internal state of the TONCO AMM at any moment is determined by two values:
 
-$$\sqrt P$$ - the root of the current price of token1 relative to token0.
+$$\sqrt P$$ - the root of the current price of token1(jetton1) relative to token0(jetton0).
 
 $$L$$ - liquidity.
 
-A change in the current price in the pool (via swaps) entails the movement of tokens from / to the pool, with the number of tokens depending on a coefficient called liquidity. Formulas linking token deltas, price change and liquidity value:
+A change in the current price in the pool (via swaps) entails the movement of jettons from / to the pool, with the number of jettons depending on a coefficient called liquidity. Formulas linking token deltas, price change and liquidity value:
 
 $$\Delta \sqrt P = \Delta Y / L$$
 
@@ -20,13 +20,13 @@ Thus, the liquidity $$L$$ can be defined as a coefficient that determines the "s
 
 TONCO is based on the concept of concentrated liquidity. This means that users can provide their tokens as liquidity for swaps at a certain price range. The following describes what this means and how the value of liquidity is related to tokens.
 
-A liquidity position in Algebra Integral is an entity defined by the following parameters:
+A liquidity position in TONCO is an entity defined by the following parameters:
 
-1. Position owner
-2. Pool to which the position belongs
-3. `Lower tick` - the tick corresponding to the lowest price at which the liquidity of this position can be used
-4. `Upper tick` - is the tick corresponding to the highest price at which the liquidity of this position can be used
-5. `Liquidity` - $$\Delta L$$ - liquidity value associated with this position
+1. `positionv3::user_address` - Position owner
+2. `positionv3::pool_address` - Pool to which the position belongs
+3. `positionv3::tickLower` - the tick corresponding to the lowest price at which the liquidity of this position can be used
+4. `positionv3::tickUpper` - is the tick corresponding to the highest price at which the liquidity of this position can be used
+5. `positionv3::liquidity` - $$\Delta L$$ - liquidity value associated with this position
 
 The liquidity value associated with the position $$\Delta L$$ adds to the global liquidity value when the position becomes active (price inside the specified tick range) and subtracted from the global liquidity value when the position becomes inactive (price outside the specified tick range). These changes take place during the [swap](swap-calculation.md) on the crossing of position-related [ticks](ticks.md).
 
@@ -38,9 +38,9 @@ $$\sqrt {P_{bottom}}$$ - the price root value corresponding to the lower tick of
 
 $$\sqrt {P_{current}}$$ - the current value of the price root in the pool.
 
-Note that during the upward price movement (oneToZero) the pool buys token1 (Y) and sells token0 (X). On the other hand, during the downward price movement (zeroToOne) the pool buys token0 and sells token1.
+Note that during the upward price movement (zeroToOne = false) the pool buys jetton1 (Y) and sells jetton0 (X). On the other hand, during the downward price movement (zeroToOne = true) the pool buys jetton0 and sells token1.
 
-This means that a liquidity position must, on the one hand, provide enough token0 for the sale to move the price up to the $$\sqrt {P_{top}}$$, and, on the other hand, provide for sale a sufficient amount of token1 to move the price to $$\sqrt {P_{bottom}}$$ .
+This means that a liquidity position must, on the one hand, provide enough jetton0 for the sale to move the price up to the $$\sqrt {P_{top}}$$, and, on the other hand, provide for sale a sufficient amount of jetton1 to move the price to $$\sqrt {P_{bottom}}$$ .
 
 #### Correlation between the liquidity value and the amount of tokens(jettons)
 
@@ -74,11 +74,11 @@ For [swaps](swap-calculation.md), the pool deducts a fee that is allocated to th
 
 Two accumulators of the following form are used for this purpose:
 
-$$totalFeeGrowthToken0 = \sum F^x_{amount} / L$$
+$$totalFeeGrowthJetton0 = \sum F^x_{amount} / L$$
 
-$$totalFeeGrowthToken1 = \sum F^y_{amount} / L$$
+$$totalFeeGrowthJetton1 = \sum F^y_{amount} / L$$
 
-where $$F^{\{x, y\}}_{amount}$$ - the collected amount of fees in token0 or token1, $$L$$ - the current global value of the fee.
+where $$F^{\{x, y\}}_{amount}$$ - the collected amount of fees in jetton0 or jetton1, $$L$$ - the current global value of the fee.
 
 During swap, each iteration of the main loop holds the commission in the input token and increments the value of the corresponding accumulator.
 
@@ -86,14 +86,14 @@ Thanks to this mechanism, it is easy to calculate the share of fees due to each 
 
 The corresponding values of accumulators increment are recorded in the position when it was created, let's call them:
 
-$$innerFeeGrowthToken0_{old}$$ - accumulator increment for token0 that occurred between specified ticks
+$$innerFeeGrowthJetton0_{old}$$ - accumulator increment for jetton0 that occurred between specified ticks
 
-$$innerFeeGrowthToken1_{old}$$ - accumulator increment for token1 that occurred between specified ticks
+$$innerFeeGrowthJetton1_{old}$$ - accumulator increment for jetton1 that occurred between specified ticks
 
 Then the amount of tokens that correspond to the share of the fees for a liquidity position can be calculated at any time:
 
-$$\Delta fees_x = \Delta L \cdot (innerFeeGrowthToken0_{new} - innerFeeGrowthToken0_{old})$$
+$$\Delta fees_x = \Delta L \cdot (innerFeeGrowthJetton0_{new} - innerFeeGrowthJetton0_{old})$$
 
-$$\Delta fees_y = \Delta L \cdot (innerFeeGrowthToken1_{new} - innerFeeGrowthToken1_{old})$$
+$$\Delta fees_y = \Delta L \cdot (innerFeeGrowthJetton1_{new} - innerFeeGrowthJetton1_{old})$$
 
-This is followed by an update of $$innerFeeGrowthToken0_{old}$$ and $$innerFeeGrowthToken1_{old}$$
+This is followed by an update of $$innerFeeGrowthJetton0_{old}$$ and $$innerFeeGrowthJetton1_{old}$$
