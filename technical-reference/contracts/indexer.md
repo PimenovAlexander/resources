@@ -1,93 +1,98 @@
+---
+hidden: true
+---
+
 # 🗂️ Indexer
 
-# TON Events data that is collected
+## 🗂️ Indexer
 
-## Pool creaton
+## TON Events data that is collected
 
-### Opcode
+### Pool creaton
 
-ROUTERV3_OPERATION_CREATE_POOL
+#### Opcode
 
-| **Value** | **Type** |
-| --- | --- |
-| jetton0 | address |
-| jetton1 | address |
-| poolAddress | address |
+ROUTERV3\_OPERATION\_CREATE\_POOL
 
-### Opcode
+| **Value**   | **Type** |
+| ----------- | -------- |
+| jetton0     | address  |
+| jetton1     | address  |
+| poolAddress | address  |
 
-POOLV3_INIT
+#### Opcode
 
-| **Value** | **Type** |
-| --- | --- |
-| tick | int |
-| priceSqrt | uint |
-| tickSpacing | uint |
+POOLV3\_INIT
 
-## Минт позиции
+| **Value**   | **Type** |
+| ----------- | -------- |
+| tick        | int      |
+| priceSqrt   | uint     |
+| tickSpacing | uint     |
 
-### Opcode
+### Минт позиции
 
-POOLV3_OPERATION_MINT
+#### Opcode
 
-| **Value** | **Type** |
-| --- | --- |
-| owner | address |
-| nftID | uint |
-| nftAddress | address |
-| tickLower | int |
-| tickUpper | int |
-| liquidity | uint |
-| amount0 | uint |
-| amount1 | uint |
+POOLV3\_OPERATION\_MINT
 
-## Берн позиции
+| **Value**  | **Type** |
+| ---------- | -------- |
+| owner      | address  |
+| nftID      | uint     |
+| nftAddress | address  |
+| tickLower  | int      |
+| tickUpper  | int      |
+| liquidity  | uint     |
+| amount0    | uint     |
+| amount1    | uint     |
 
-### Opcode
+### Берн позиции
+
+#### Opcode
 
 Тут не уверен насчет опкода
 
 | **Value** | **Type** |
-| --- | --- |
-| owner | address |
-| nftID | uint |
-| tickLower | int |
-| tickUpper | int |
-| liquidity | uint |
-| amount0 | uint |
-| amount1 | uint |
+| --------- | -------- |
+| owner     | address  |
+| nftID     | uint     |
+| tickLower | int      |
+| tickUpper | int      |
+| liquidity | uint     |
+| amount0   | uint     |
+| amount1   | uint     |
 
-## Коллект фи
+### Коллект фи
 
-### Opcode
+#### Opcode
 
-POOLV3_OPERATION_COLLECT_PROTOCOL
-
-| **Value** | **Type** |
-| --- | --- |
-| owner | address |
-| nftID | uint |
-| tickLower | int |
-| tickUpper | int |
-| liquidity | uint |
-| amount0 | uint |
-| amount1 | uint |
-
-## Свап
-
-### Opcode
-
-POOLV3_OPERATION_SWAP
-
+POOLV3\_OPERATION\_COLLECT\_PROTOCOL
 
 | **Value** | **Type** |
-| --- | --- |
-| sender | address |
-| recipient | address |
-| liquidity | uint |
-| amount0 | uint |
-| amount1 | uint |
-| price | uint |
-| tick | int |
-| totalFeeGrowth0 | int |
-| totalFeeGrowth1 | int |
+| --------- | -------- |
+| owner     | address  |
+| nftID     | uint     |
+| tickLower | int      |
+| tickUpper | int      |
+| liquidity | uint     |
+| amount0   | uint     |
+| amount1   | uint     |
+
+### Свап
+
+#### Opcode
+
+POOLV3\_OPERATION\_SWAP
+
+| **Value**       | **Type** |
+| --------------- | -------- |
+| sender          | address  |
+| recipient       | address  |
+| liquidity       | uint     |
+| amount0         | uint     |
+| amount1         | uint     |
+| price           | uint     |
+| tick            | int      |
+| totalFeeGrowth0 | int      |
+| totalFeeGrowth1 | int      |
