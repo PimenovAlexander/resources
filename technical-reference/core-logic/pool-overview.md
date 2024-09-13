@@ -4,24 +4,24 @@
 
 The liquidity pool is a key component of the TONCO protocol. This smart contract implements the most important functions that provide swaps, liquidity management, and other protocol functionality.
 
-Due to the nature of TON the actual pool contract controls consistency of the math and data structures for the swaps, mints and burns. Actual funds are on the wallets that belong to router contract. Pool only monitors and updates the reserves that belong to it.
+Due to the nature of TON the actual pool contract controls consistency of the math and data structures for the swaps, mints and burns. Actual funds are stored on the wallets that belong to router contract. Pool only monitors and updates the reserves that belong to it.
 
 For each pair of tokens(jettons) in the TONCO, one unique pool is created. This approach minimizes liquidity fragmentation, simplifies the construction of optimal routes for swaps, and simplifies liquidity management for liquidity providers. _(TONCO v1 Due to TON non-atomic architecture multihop swaps are not yet supported.)_
 
 The address of each pool is determined deterministically by the mechanism using token(jetton) wallet addresses owned by the router as salt. Generally this address depends on 5 parameters:
 
-* Jetton0/Jetton1 wallet address&#x20;
-* Router Address&#x20;
+* Jetton0/Jetton1 wallet address
+* Router Address
 * Subcontracts code
-  * &#x20;NFT position contract code&#x20;
-  * User account code&#x20;
+  * NFT position contract code
+  * User account code
 * Actual pool code
 
 Liquidity pools are not intended for direct use by ordinary users - for convenient use of the protocol functionality, users use peripheral contracts that implement additional calculations and security checks. Pool won't accept majority of the operations form any user, with the exception of the burn start.
 
 ### Requirements for tokens
 
-The liquidity pool expects the token to be TEP-74/89 standard. In addition, there are the following limitations:&#x20;
+The liquidity pool expects the token to be TEP-74/89 standard. In addition, there are the following limitations:
 
 1. The Algebra TONCO does not support tokens that can arbitrarily reduce balances at addresses.
 2. The Algebra TONCO does not guarantee full functionality when using tokens whose total supply exceeds $$2^{128} -1$$(maximum value uint128).

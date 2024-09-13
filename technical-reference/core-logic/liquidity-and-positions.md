@@ -56,11 +56,11 @@ If the current price is higher than the upper price of the position ( $$\sqrt {P
 
 $$\Delta X = 0$$
 
-$$\Delta Y = - ( \sqrt {P_{top}} - \sqrt {P_{bottom}}) * \Delta L$$
+$$\Delta Y = - ( \sqrt {P_{top}} - \sqrt {P_{bottom}}) \cdot \Delta L$$
 
 If the current price is below the price range of the position ( $$\sqrt {P_{current}} \lt \sqrt {P_{bottom}}$$ ):
 
-$$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{bottom}}) * \Delta L$$
+$$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{bottom}}) \cdot \Delta L$$
 
 $$\Delta Y = 0$$
 

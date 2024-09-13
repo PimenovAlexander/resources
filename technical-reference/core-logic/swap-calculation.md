@@ -12,7 +12,7 @@ $$X \cdot Y = K$$
 
 Where $$X, Y$$ – token (jetton) reserves, $$K$$ - constant. Jettons are conventionally called jetton1 (Y) and jetton0 (X):
 
-**slice\_hash(jetton0\_address) > slice\_hash(jetton1\_address)**.
+`slice_hash(jetton0_address) > slice_hash(jetton1_address).`
 
 Uniswap V3 transformed the system to a new form. While preserving the basic invariant, two new values are introduced:
 
@@ -28,13 +28,13 @@ $$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
 Where $$X$$ is the balance change of jetton0 at the pool, and $$Y$$is the balance change of jetton1 at the pool. Thus, a change in the price root "generates" the movement of jettons in and out of the pool. Basically, swap can be described as a process of "movement" of the price to some value.
 
-However, the peculiarity of AMM Algebra is concentrated liquidity - in the course of price movement liquidity can increase or decrease due to crossing of position boundaries of liquidity providers. For this purpose, [a tick mechanism](ticks.md) is implemented\\
+However, the peculiarity of AMM Algebra is concentrated liquidity - in the course of price movement liquidity can increase or decrease due to crossing of position boundaries of liquidity providers. For this purpose, [a tick mechanism](ticks.md) is implemented
 
 ### Swap as price movement from tick to tick
 
 #### Main cycle
 
-In each tick is recorded the value of $$L$$, which should be added/subtracted to the liquidity, depending on the direction in which the tick crosses (left to right or right to left). Due to this, the whole swap process is represented as a price movement towards the next active tick (to the right or left depending on the swap direction - zeroToOne to the left/down, oneToZero to the right/up). If the price reaches an active tick, the current liquidity changes and the movement continues to the next tick:
+In each tick is recorded the value of $$L$$, which should be added/subtracted to the liquidity, depending on the direction in which the tick crosses (left to right or right to left). Due to this, the whole swap process is represented as a price movement towards the next active tick (to the right or left depending on the swap direction - (zeroForOne = true) to the left/down, (zeroForOne = false) to the right/up). If the price reaches an active tick, the current liquidity changes and the movement continues to the next tick:
 
 1. Find out the current price ($$P_{current}$$)
 2. Find out the price on the next active tick ($$P_{next}$$)
@@ -102,11 +102,11 @@ $$\Delta X = (\sqrt P_0 - \sqrt P_1 )\cdot {L \over ( \sqrt P_0 \cdot \sqrt P_1)
 
 #### Price Movement Math
 
-A key component of this library is the movePriceTowardsTarget method, which provides the parameter values that result from moving the price to a given target under specified conditions.
+A key component of this library is the swapInternal method, which provides the parameter values that result from moving the price to a given target under specified conditions.
 
 Given an input/output jetton constraint, target price, current price, commission value, and swap direction, the method determines:
 
 * The price value resulting from the price movement
 * Required number of input jettons (including fee)
 * Number of output jettons
-* Number of tjettonsokens collected as fee
+* Number of jettons collected as fee
