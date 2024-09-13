@@ -34,16 +34,15 @@ If current liquidity is zero ($$L = 0$$), no synchronization occurs until liquid
 
 Thanks to this mechanism it became possible to support jetton rebase by the TONCO protocol - the pool is able to detect an increase in jetton balances due to external reasons and distribute the excess jettons among active liquidity providers.
 
-In addition, jettons directly sent to the pool's contract for any reason will not be permanently blocked in the pool, and are distributed among active liquidity positions.
 
-Another advantage of the reserve mechanism, is that it provides the ability to flashloan regardless of current liquidity - it is possible to use flashloan even if the current liquidity in the pool is zero, but there is some amount of jettons on the balance.
+
+
 
 ### Limits
 
 The reserve value for each of the jettons is limited to the maximum value of data type `uint128`: $$2^{128} - 1$$. This restriction allows us to minimize the cost of gas when interacting with the pool.
 
 However, this restriction means that TONCO does not guarantee full pooling performance when using jettons with totalSupply greater than the maximum value of `uint128`. For most pool interactions, if the pool interaction results in the reserve exceeding the maximum allowed value, the transaction will be reverted.
-
 
 ### Pending Protocol Fee
 
