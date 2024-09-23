@@ -10,9 +10,7 @@
 
 ### Deploy/Init Pool
 
-Pool deployment is triggered by administrator of the AMM (also he is  the administrator of the router contract - `router::admin_address`). Pool deployment leads to the processing of the POOLV3\_INIT operation inside pool contract.
-
-This operation is used both - during the initial deployment of the pool and it pool administrator wants to change some crucial parameters. Pool deployment consists of two stages&#x20;
+Pool deployment is triggered by administrator of the AMM (also he is the administrator of the router contract - `router::admin_address`) by the invoking of the operation [CREATE\_POOL](router.md#routerv3\_create\_pool). Pool deployment leads to the processing of the [POOLV3\_INIT](pool.md#poolv3\_init) operation inside pool contract. This operation is used both - during the initial deployment of the pool and it pool administrator wants to change some crucial parameters. Pool deployment consists of two stages
 
 I. Forming and sending state\_init data that holds
 
@@ -33,16 +31,19 @@ This message will be accepted and sets all the data that is needed for pool oper
 
 ### Mint
 
-Position minting is done by sending two jettons to the router. Generally user uses the get methods to estimate the amount of the jettons that he/she need to send to mint particular amount of the
-liqulidity in the given price range (tick range) - [getMintEstimate](pool.md#getMintEstimate) . Optionally user may send more jettons then needed to account for possible slippage.
+Position minting is done by sending two jettons to the router. Generally user calls [pool::getMintEstimate](pool.md#getmintestimate) to estimate the amount of the jettons that he/she need to send to mint particular amount of the liquidity in the given price range (tick range). Optionally user may send more jettons then needed to account for possible slippage.
 
-While sending both jettons, user sends the payload that contains the position parameters.
+While sending both jettons to router wallets, user sends the payload that contains the position parameters. On receiving the jettons (operation [JETTON\_TRANSFER\_NOTIFICATION](router.md#routerv3\_transfer\_notification) ) router would compute the pool address and forward the operation to the pool ([POOLV3\_FUND\_ACCOUNT](pool.md#poolv3\_fund\_account))
 
 <figure><img src="../../images/mint.svg" alt="" width="800"><figcaption></figcaption></figure>
 
 ### Swap
 
+Generally user calls [pool::getSwapEstimate](pool.md#getswapestimate) to estimate the amount of the jettons that he/she need to send to swap&#x20;
+
 <figure><img src="../../images/swap.svg" alt="" width="800"><figcaption></figcaption></figure>
+
+
 
 ### Burn
 
