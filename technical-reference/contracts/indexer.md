@@ -30,7 +30,7 @@ POOLV3\_INIT
 | priceSqrt   | uint     |
 | tickSpacing | uint     |
 
-### Минт позиции
+## Mint position
 
 #### Opcode
 
@@ -47,11 +47,10 @@ POOLV3\_OPERATION\_MINT
 | amount0    | uint     |
 | amount1    | uint     |
 
-### Берн позиции
+## Position burn
 
 #### Opcode
 
-Тут не уверен насчет опкода
 
 | **Value** | **Type** |
 | --------- | -------- |
@@ -63,7 +62,7 @@ POOLV3\_OPERATION\_MINT
 | amount0   | uint     |
 | amount1   | uint     |
 
-### Коллект фи
+## Collect protocol fee
 
 #### Opcode
 
@@ -79,7 +78,7 @@ POOLV3\_OPERATION\_COLLECT\_PROTOCOL
 | amount0   | uint     |
 | amount1   | uint     |
 
-### Свап
+## Swap
 
 #### Opcode
 

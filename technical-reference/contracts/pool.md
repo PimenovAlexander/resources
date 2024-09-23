@@ -73,7 +73,7 @@ Due to new storage organisation and availability of the **dict** data type we do
  
 ## getPoolStateAndConfiguration
  
-(slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int  ) getPoolStateAndConfiguration ()
+(slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int, int ) getPoolStateAndConfiguration ()
  
   
   Returns pool state and configuration
@@ -108,6 +108,7 @@ Due to new storage organisation and availability of the **dict** data type we do
   * @return21 Number of active NFT positions
   * @return22 Number of currenty occupied ticks
 
+  * @return22 Number of operations with pool scince the deploy
  
 ## getChildContracts
  
@@ -228,11 +229,13 @@ Due to new storage organisation and availability of the **dict** data type we do
 
 ## POOLV3_INIT
 Opcode : **0x441c39ed** 
+
 First mandatory operation that fills crucial parameters of the pool
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
 | has_admin | UInt(1)  | Flag that shows if this message have a new admin address | 
 | admin_addr | Address() | New address of the admin | 
 | has_controller | UInt(1)  | Flag that shows if this message have a new controller address | 
@@ -249,6 +252,8 @@ First mandatory operation that fills crucial parameters of the pool
 ## POOLV3_SET_FEE
 Opcode : **0x6bdcbeb8** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -260,6 +265,8 @@ Opcode : **0x6bdcbeb8**
 ## POOLV3_LOCK
 Opcode : **0x5e74697** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -267,6 +274,8 @@ Opcode : **0x5e74697**
 
 ## POOLV3_UNLOCK
 Opcode : **0x3205adbd** 
+
+
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
@@ -276,10 +285,12 @@ Opcode : **0x3205adbd**
 ## POOLV3_FUND_ACCOUNT
 Opcode : **0x4468de77** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
+| query_id | Uint(64)   | queryid as of the TON documentation | 
 | owner_addr | Address()  |  | 
 | amount0 | Coins()    |  | 
 | amount1 | Coins()    |  | 
@@ -291,6 +302,8 @@ Opcode : **0x4468de77**
 
 ## POOLV3_MINT
 Opcode : **0x81702ef8** 
+
+
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
@@ -306,39 +319,45 @@ Opcode : **0x81702ef8**
 ## POOLV3_START_BURN
 Opcode : **0x530b5f2c** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
-| burned_index | Uint(64)    |  | 
-| liquidity2Burn | Uint(128)  |  | 
-| tickLower | Int(24)    |  | 
-| tickUpper | Int(24)    |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
+| burned_index | Uint(64)  |  | 
+| liquidity2Burn | Uint(128) |  | 
+| tickLower | Int(24)   |  | 
+| tickUpper | Int(24)   |  | 
 
 ## POOLV3_BURN
 Opcode : **0xd73ac09d** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
-| recipient | Address()  |  | 
-| burned_index | Uint(64)    |  | 
-| liquidity | Uint(128)  |  | 
-| tickLower | Int(24)    |  | 
-| tickUpper | Int(24)    |  | 
-| liquidity2Burn | Uint(128)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
+| recipient | Address() |  | 
+| burned_index | Uint(64)  |  | 
+| liquidity | Uint(128) |  | 
+| tickLower | Int(24)   |  | 
+| tickUpper | Int(24)   |  | 
+| liquidity2Burn | Uint(128) |  | 
 | feeGrowthInside0LastX128 | Uint(256) |  | 
 | feeGrowthInside1LastX128 | Uint(256) |  | 
 
 ## POOLV3_SWAP
 Opcode : **0xa7fb58f8** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
-| source_wallet | Address()  |  | 
-| amount | Coins()    |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
+| source_wallet | Address() | jetton wallet attached to the router | 
+| amount | Coins()   |  | 
 | sqrtPriceLimitX96 | Uint(160),PriceX96 |  | 
 | from_real_user | Address()  |  | 

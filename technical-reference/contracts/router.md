@@ -7,10 +7,13 @@
 
 # Description 
           
-This contract implements router and management of the pools. Due to destributed nature of the Router it can't do many checks, so it's mostly the proxy for the calls
+This contract implements router and management of the pools. Due to destributed nature of the TON Blockchain router it can't do many checks,
+so it's mostly the proxy for the calls. Router contarct so far is used as an owner of all the wallets holding the funds invested by liquidity providers.
 
 Main idea is that if malformed or corrupted data is sent to the router it would create malformed address of the pool and message sent to it would fail.
 So if message reaches the pool it means some criterias are satisfied.
+
+
 
 
 # Data Storage 
@@ -82,6 +85,8 @@ So if message reaches the pool it means some criterias are satisfied.
 ## ROUTERV3_CREATE_POOL
 Opcode : **0x2e3034ef** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -99,6 +104,8 @@ Opcode : **0x2e3034ef**
 ## ROUTERV3_PAY_TO
 Opcode : **0xf93bb43f** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -108,6 +115,8 @@ Opcode : **0xf93bb43f**
 
 ## ROUTERV3_TRANSFER_NOTIFICATION
 Opcode : **0xf189f909** 
+
+
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |

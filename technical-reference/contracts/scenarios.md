@@ -33,6 +33,11 @@ This message will be accepted and sets all the data that is needed for pool oper
 
 ### Mint
 
+Position minting is done by sending two jettons to the router. Generally user uses the get methods to estimate the amount of the jettons that he/she need to send to mint particular amount of the
+liqulidity in the given price range (tick range) - [getMintEstimate](pool.md#getMintEstimate) . Optionally user may send more jettons then needed to account for possible slippage.
+
+While sending both jettons, user sends the payload that contains the position parameters.
+
 <figure><img src="../../images/mint.svg" alt="" width="800"><figcaption></figcaption></figure>
 
 ### Swap

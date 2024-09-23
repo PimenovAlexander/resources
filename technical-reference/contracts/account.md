@@ -7,8 +7,8 @@
 
 # Description 
 
-   Account contract. This a contract that stores the funds that user would use for minting, And also proxies the minting message
-
+   Account contract. This a contract that stores the funds that user would use for minting. Account also proxies the minting message
+   and collects proof that both jettons were acctully funded correctly
 
 # Data Storage 
 <table data-full-width="true">
@@ -53,6 +53,8 @@
 ## ACCOUNTV3_ADD_LIQUIDITY
 Opcode : **0x3ebe5431** 
 
+
+
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
@@ -67,6 +69,8 @@ Opcode : **0x3ebe5431**
 
 ## ACCOUNTV3_RESET_GAS
 Opcode : **0x42a0fb43** 
+
+
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
