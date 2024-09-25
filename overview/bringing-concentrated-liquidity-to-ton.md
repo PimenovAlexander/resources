@@ -79,7 +79,7 @@ This innovation offers significant benefits:
 * **Customizable Price Ranges:** LPs have the flexibility to select price intervals they believe will see the most trading activity, enabling them to maximize potential returns.
 * **Increased Fee Revenue:** The concentration of liquidity within chosen price bands can lead to higher fee generation, as trades within these bands are more frequent and substantial.
 
-**For those who have experienced high impermanent loss on platforms like Uniswap V3, TONCO’s concentrated liquidity model offers a more robust solution, empowering you to minimize risks and maximize returns: such approach increases DEX’s capital efficiency UP TO 95% compared to traditional V2 AMMs!**
+**For those who have experienced high impermanent loss on platforms like Uniswap V3, TONCO’s concentrated liquidity model offers a more robust solution, empowering you to minimize risks and maximize returns: such an approach increases DEX’s capital efficiency UP TO 95% compared to traditional V2 AMMs!**
 
 ## Dynamic Fees: Adapting to Market Conditions <a href="#id-4468" id="id-4468"></a>
 
@@ -95,11 +95,11 @@ This streamlined approach simplifies the farming process, making it easier for u
 
 ## Modular Approach: V4 AMM is coming? <a href="#id-567f" id="id-567f"></a>
 
-TONCO is designed to soon integrate dynamic fees, modules, limit orders, trading discounts, and KYC — all in form of V4 plugins.
+TONCO is designed to soon integrate dynamic fees, modules, limit orders, trading discounts, and KYC — all in the form of V4 plugins.
 
 The entire V4 AMM concept is based on a Modular Architecture with custom plugins, reinventing the way DEXes operate. This approach splits the previously monolithic infrastructure into two key components: the Core Codebase and Plugins. These plugins are crucial for enhancing the efficiency, security, and adaptability of DEXes, making it a strong competitor to Uniswap V4.
 
-TON’s design is markedly different from EVM approaches, allowing for the creation of nearly any plugin, unlike EVM chains. By compromising on decentralization, we can also reimagine the Modular AMM approach. Security is ensured by keeping plugin execution off-chain, handled on the backend.
+TON’s design is markedly different from EVM approaches, allowing for the creation of nearly any plugin, unlike EVM chains. By compromising on decentralization, we can also reimagine the Modular AMM approach. Security is ensured by keeping plugin execution off-chain and handled on the backend.
 
 ## Conclusion: The Future of DeFi on TONCO <a href="#id-70fc" id="id-70fc"></a>
 

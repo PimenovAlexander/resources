@@ -20,9 +20,9 @@ For this reason, when making swaps, you should be able to find the next active t
 
 #### Storing ticks in TON Contract
 
-To simplify navigation through ticks during swaps and for other purposes,  active ticks are organized in a dict() with 24bit signed ints used as keys.&#x20;
+To simplify navigation through ticks during swaps and for other purposes, active ticks are organized in a dict() with 24-bit signed ints used as keys.
 
-&#x20;  Because dict() is internally stored as a tree  pool always has quick access to the information about which ticks are currently the next and previous active ticks. So when swapping, it is easy to get information about which tick a particular iteration of the swap is up to.&#x20;
+Because dict() is internally stored as a tree pool always has quick access to the information about which ticks are currently the next and previous active ticks. So when swapping, it is easy to get information about which tick a particular iteration of the swap is up to.
 
 ### Determination of fee increment within the range of ticks
 
@@ -34,15 +34,15 @@ $$totalFeeGrowthJetton1 = \sum F^y_{amount} / L_t$$
 
 Two additional values are stored in each tick that correspond to the accumulator increments "outside" the ticks: `outerFeeGrowth0Jetton`, `outerFeeGrowth1Jetton`.
 
-These values have a relative character and are set at the moment of tick initialisation according to the following rule: it is presumed that the entire "increment" of the commission accumulator occurred **below** this tick. For this reason, the values are initialised as follows:
+These values have a relative character and are set at the moment of tick initialization according to the following rule: it is presumed that the entire "increment" of the commission accumulator occurred **below** this tick. For this reason, the values are initialized as follows:
 
-If the tick to be initialised is less than or equal to the global tick at the moment$$(tick \le currentTick)$$:
+If the tick to be initialized is less than or equal to the global tick at the moment$$(tick \le currentTick)$$:
 
 $$outerFeeGrowth0Jetton = totalFeeGrowthJetton0$$
 
 $$outerFeeGrowth1Jetton = totalFeeGrowthJetton1$$
 
-On the other hand, if the tick to be initialised is above the current global tick $$(tick \gt currentTick)$$, then the corresponding values are initialised to zero:
+On the other hand, if the tick to be initialized is above the current global tick $$(tick \gt currentTick)$$, then the corresponding values are initialized to zero:
 
 $$outerFeeGrowth0Jetton = 0$$
 
@@ -54,15 +54,15 @@ $$outerFeeGrowth0Jetton_{new} = totalFeeGrowthJetton0 - outerFeeGrowth0Jetton_{o
 
 $$outerFeeGrowth1Jetton_{new} = totalFeeGrowthJetton1 - outerFeeGrowth1Jetton_{old}$$
 
-This ensures that, knowing the current global tick, it is possible at any time to determine what jetton increment has occurred "on the other side" since the tick was initialised:
+This ensures that, knowing the current global tick, it is possible at any time to determine what jetton increment has occurred "on the other side" since the tick was initialized:
 
 <figure><img src="../../.gitbook/assets/ticks3.png" alt="" width="563"><figcaption><p>outerFeeGrowth - commission accumulator increment "on the other side" from tick N</p></figcaption></figure>
 
-At the same time, the pool possesses the accumulator values `totalFeeGrowthJetton0` and `totalFeeGrowthJetton1`, which contain the total commission increment for the entire time of the pool's existence.
+At the same time, the pool possesses the accumulator values `totalFeeGrowthJetton0` and `totalFeeGrowthJetton1`, which contains the total commission increment for the entire time of the pool's existence.
 
 <figure><img src="../../.gitbook/assets/ticks4.png" alt="" width="563"><figcaption><p>totalFeeGrowth - total fee / L growth for the entire pool lifetime</p></figcaption></figure>
 
-Due to these values, it is easy to calculate the value of the commission increment that occurred within a given range of ticks after their initialisation.
+Due to these values, it is easy to calculate the value of the commission increment that occurred within a given range of ticks after their initialization.
 
 If $$tick_K \le currentTick \lt tick_N$$:
 
@@ -79,7 +79,6 @@ $$innerFeeGrowth_{K, N} = outerFeeGrowth_K - outerFeeGrowth_N$$
 **Thus**, using the above formulas for `innerFeeGrowth` it is possible to know the accumulator increment $$\sum F^{x, y}_{amount} / L_t$$ within the range specified by any two active ticks at any time. Distribution of commission among liquidity positions is performed by tracking the change of `innerFeeGrowth` for a liquidity position:
 
 $$\Delta fee_{position} = \Delta L_{position} * \Delta innerFeeFrowth _{position}$$
-
 
 The corresponding bit at the root is 1 if the corresponding second-level word has at least one active bit.
 

@@ -6,7 +6,7 @@ icon: shuffle
 
 ### AMM Base
 
-Algebra AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV2). The internal state of AMM as a system must always satisfy a given invariant, which, in the case of CPF-AMM looks like:
+Algebra AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV2). The internal state of AMM as a system must always satisfy a given invariant, which, in the case of CPF-AMM looks like this:
 
 $$X \cdot Y = K$$
 
@@ -26,7 +26,7 @@ $$\Delta \sqrt P = \Delta Y / L$$
 
 $$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
-Where $$X$$ is the balance change of jetton0 at the pool, and $$Y$$is the balance change of jetton1 at the pool. Thus, a change in the price root "generates" the movement of jettons in and out of the pool. Basically, swap can be described as a process of "movement" of the price to some value.
+We denote the balance change of jetton0 at the pool as $$X$$, and $$Y$$is the balance change of jetton1 at the pool. Thus, a change in the price root "generates" the movement of jettons in and out of the pool. Swap can be described as a process of "movement" of the price to some value.
 
 However, the peculiarity of AMM Algebra is concentrated liquidity - in the course of price movement liquidity can increase or decrease due to crossing of position boundaries of liquidity providers. For this purpose, [a tick mechanism](ticks.md) is implemented
 
@@ -40,7 +40,7 @@ In each tick is recorded the value of $$L$$, which should be added/subtracted to
 2. Find out the price on the next active tick ($$P_{next}$$)
 3. Calculate jetton entry and exit for price movement to ($$P_{next}$$)
 4. If jetton input/output does not exceed the input conditions, then cross the tick and change the current liquidity value. $$P_{current} := P_{next}$$. Return to step 2.
-5. If there is unspent jetton input/output left, determine to what price the current price can be moved to using the remaining stock.
+5. If there is unspent jetton input/output left, determine to what price the current price can be moved using the remaining stock.
 
 So as it is possible, the price moves from tick to tick, and then its movement stops somewhere between ticks, depending on the set number of tokens on the input or output of the swap.
 
@@ -56,7 +56,7 @@ _(due to TON architecture v1 TONCO doesn't support exactOutput - the swap should
 
 Additionally, the parameter limitSqrtPrice is taken into account when calculating the swap, which imposes a limit on the possible price movement - if the price reaches this value, the swap is stopped.
 
-This parameter allows to simplify some scenarios of AMM usage, including arbitrage or jetton price adjustment.
+This parameter allows simplification of some scenarios of AMM usage, including arbitrage or jetton price adjustment.
 
 ### Fees calculation
 
