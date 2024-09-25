@@ -7,7 +7,7 @@
 
 # Description 
 
-This is a modifed NFT contract to store user position
+;; This is a modified NFT contract to store user position
 
 # Data Storage 
 <table data-full-width="true">
@@ -18,7 +18,7 @@ This is a modifed NFT contract to store user position
 <tr><td>1</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>positionv3::index</td><td>The position number. Also the nft index  </tr>
 <tr><td>2</td><td>addr</td><td> 267 /  0</td><td>1</td><td>positionv3::pool_address</td><td>Address of the pool that created this NFT  </tr>
 <tr><td>3</td><td>addr</td><td> 267 /  0</td><td>1</td><td>positionv3::user_address</td><td>Address of the user ton wallet that currently owns the position  </tr>
-<tr><td>4</td><td>cell</td><td> 0 /  1</td><td>1</td><td>positionv3::content</td><td>NFT metadata that contains image url, name and description packed in standart format  </tr>
+<tr><td>4</td><td>cell</td><td> 0 /  1</td><td>1</td><td>positionv3::content</td><td>NFT metadata that contains image url, name and description packed in standard format  </tr>
 <tr><td>5</td><td>uint128</td><td> 128 /  0</td><td>1</td><td>positionv3::liquidity</td><td>Position liquidity  </tr>
 <tr><td>6</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickLower</td><td>Positioni lower tick number  </tr>
 <tr><td>7</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickUpper</td><td>Positioni upper tick number  </tr>
