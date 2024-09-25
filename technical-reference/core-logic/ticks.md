@@ -1,9 +1,5 @@
 # 📏 Ticks
 
-Relevant and important files:
-
-* TBD
-
 ### Ticks
 
 The entire price space is divided into sections using special cut-offs called ticks.
@@ -54,7 +50,7 @@ $$outerFeeGrowth0Jetton_{new} = totalFeeGrowthJetton0 - outerFeeGrowth0Jetton_{o
 
 $$outerFeeGrowth1Jetton_{new} = totalFeeGrowthJetton1 - outerFeeGrowth1Jetton_{old}$$
 
-This ensures that, knowing the current global tick, it is possible at any time to determine what jetton increment has occurred "on the other side" since the tick was initialized:
+This ensures that knowing the current global tick, it is possible at any time to determine what jetton increment has occurred "on the other side" since the tick was initialized:
 
 <figure><img src="../../.gitbook/assets/ticks3.png" alt="" width="563"><figcaption><p>outerFeeGrowth - commission accumulator increment "on the other side" from tick N</p></figcaption></figure>
 

@@ -8,13 +8,13 @@ $$\sqrt P$$ - the root of the current price of token1(jetton1) relative to token
 
 $$L$$ - liquidity.
 
-A change in the current price in the pool (via swaps) entails the movement of jettons from / to the pool, with the number of jettons depending on a coefficient called liquidity. Formulas linking token deltas, price change and liquidity value:
+A change in the current price in the pool (via swaps) entails the movement of jettons from / to the pool, with the number of jettons depending on a coefficient called liquidity. Formulas linking token deltas, price change, and liquidity value:
 
 $$\Delta \sqrt P = \Delta Y / L$$
 
 $$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
-Thus, the liquidity $$L$$ can be defined as a coefficient that determines the "speed" of price change when tokens are swapped. Change of $$\sqrt P$$ (or $$1 / \sqrt P$$, depending on the direction of swap) is inversely proportional to liquidity. This means that the greater the liquidity, the more tokens need to be swapped to move the price by a given value.
+Thus, liquidity $$L$$ can be defined as a coefficient that determines the "speed" of price change when tokens are swapped. Change of $$\sqrt P$$ (or $$1 / \sqrt P$$, depending on the direction of the swap) is inversely proportional to liquidity. This means that the greater the liquidity, the more tokens need to be swapped to move the price by a given value.
 
 ### Liquidity position
 
@@ -28,7 +28,7 @@ A liquidity position in TONCO is an entity defined by the following parameters:
 4. `positionv3::tickUpper` - is the tick corresponding to the highest price at which the liquidity of this position can be used
 5. `positionv3::liquidity` - $$\Delta L$$ - liquidity value associated with this position
 
-The liquidity value associated with the position $$\Delta L$$ adds to the global liquidity value when the position becomes active (price inside the specified tick range) and subtracted from the global liquidity value when the position becomes inactive (price outside the specified tick range). These changes take place during the [swap](swap-calculation.md) on the crossing of position-related [ticks](ticks.md).
+The liquidity value associated with the position $$\Delta L$$ adds to the global liquidity value when the position becomes active (price inside the specified tick range) and is subtracted from the global liquidity value when the position becomes inactive (price outside the specified tick range). These changes take place during the [swap](swap-calculation.md) on the crossing of position-related [ticks](ticks.md).
 
 Thus, the value $$\Delta L$$ must ensure the fulfillment of the formulas from the [liquidity definition](liquidity-and-positions.md#definition-of-liquidity) section on the price range defined by the upper and lower tick of the position. Then the correlation between the number of tokens and $$\Delta L$$ can be obtained as follows. Let:
 
@@ -64,7 +64,7 @@ $$\Delta X = - (1 / \sqrt {P_{top}} - 1 / \sqrt {P_{bottom}}) \cdot \Delta L$$
 
 $$\Delta Y = 0$$
 
-Thus, when creating a position with the given $$\Delta L$$, $$\sqrt {P_{top}}$$, $$\sqrt {P_{bottom}}$$ user must provide $$\Delta X$$jetton0 and $$\Delta Y$$jetton1, calculated according to the above formulas taking into account the current price in the pool.
+Thus, when creating a position with the given $$\Delta L$$, $$\sqrt {P_{top}}$$,  $$\sqrt {P_{bottom}}$$,   the user must provide $$\Delta X$$jetton0 and $$\Delta Y$$jetton1, calculated according to the above formulas taking into account the current price in the pool.
 
 On the other hand, when withdrawing liquidity, the user should receive$$\Delta X$$jetton0 and $$\Delta Y$$jetton1, also calculated using the same formulas considering the current price and the change in $$\Delta L$$.
 
@@ -80,7 +80,7 @@ $$totalFeeGrowthJetton1 = \sum F^y_{amount} / L$$
 
 where $$F^{\{x, y\}}_{amount}$$ - the collected amount of fees in jetton0 or jetton1, $$L$$ - the current global value of the fee.
 
-During swap, each iteration of the main loop holds the commission in the input token and increments the value of the corresponding accumulator.
+During the swap, each iteration of the main loop holds the commission in the input token and increments the value of the corresponding accumulator.
 
 Thanks to this mechanism, it is easy to calculate the share of fees due to each liquidity position. With the help of the ticks mechanism, it is possible to know at any moment what parts of accumulators were added at the moment when the price was between two given ticks. The definition of accumulator increments within the tick range is described in more detail in [the article about ticks](ticks.md).
 
