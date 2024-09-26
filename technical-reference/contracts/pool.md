@@ -122,16 +122,17 @@ Due to the new storage organization and availability of the **dict** data type w
  
 ## getTickInfosFrom
  
-(tuple, tuple) getTickInfosFrom (int key, int amount, int dir)
+(tuple) getTickInfosFrom (int key, int amount, int dir, int full)
  
   
-   Returns amount ticks starting form key (non-inclusive)
+   Returns ticks starting form key (non-inclusive)
    0 forward 
    1 backward
 
   * @param key
   * @param amount
   * @param dir
+  * @param full   
 
   * @return0 a tuple with keys
   * @return1 a tuple with corresponding 
