@@ -20,7 +20,7 @@ Due to the new storage organization and availability of the **dict** data type w
 <tr><td>1</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::router_address</td><td>Address of the router contract that created this pool  </tr>
 <tr><td>2</td><td>uint16</td><td> 16 /  0</td><td>1</td><td>poolv3::lp_fee_base</td><td>Liquidity provider fee. base in FEE_DENOMINATOR parts  </tr>
 <tr><td>3</td><td>uint16</td><td> 16 /  0</td><td>1</td><td>poolv3::protocol_fee</td><td>Protocol fee in FEE_DENOMINATOR (16 bit)  </tr>
-<tr><td>4</td><td>uint16</td><td> 16 /  0</td><td>1</td><td>poolv3::lp_fee_current</td><td>current value of the pool fee, in case of dynamic adjustment  </tr>
+<tr><td>4</td><td>uint16</td><td> 16 /  0</td><td>1</td><td>poolv3::lp_fee_current</td><td>Current value of the pool fee, in case of dynamic adjustment  </tr>
 <tr><td>5</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::jetton0_wallet</td><td>Address of the 0 token in the pool. This is an address of the jetton0 wallet attached to router  </tr>
 <tr><td>6</td><td>addr</td><td> 267 /  0</td><td>1</td><td>poolv3::jetton1_wallet</td><td>Address of the 1 token in the pool  This is an address of the jetton0 wallet attached to router  </tr>
 <tr><td>7</td><td>int24</td><td> 24 /  0</td><td>1</td><td>poolv3::tick_spacing</td><td>Spacing of the ticks, 24 bits of signed int would be used  </tr>
@@ -253,35 +253,35 @@ First mandatory operation that fills crucial parameters of the pool
 ## POOLV3_SET_FEE
 Opcode : **0x6bdcbeb8** 
 
-
+This operation sets the fee values for the pool. This is allowed to do by the operator and the admin
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
-| protocol_fee | Uint(16)  |  | 
-| lp_fee_base | Uint(16)  |  | 
-| lp_fee_current | Uint(16)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
+| protocol_fee | Uint(16)  | Liquidity provider fee. base in FEE_DENOMINATOR parts | 
+| lp_fee_base | Uint(16)  | Protocol fee in FEE_DENOMINATOR  | 
+| lp_fee_current | Uint(16)  | Current value of the pool fee, in case of dynamic adjustment | 
 
 ## POOLV3_LOCK
 Opcode : **0x5e74697** 
 
-
+This operation locks the pool. This is allowed to do by the operator and the admin
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
 
 ## POOLV3_UNLOCK
 Opcode : **0x3205adbd** 
 
-
+This operation unlocks the pool. This is allowed to do by the operator and the admin
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
 
 ## POOLV3_FUND_ACCOUNT
 Opcode : **0x4468de77** 
@@ -320,46 +320,46 @@ Opcode : **0x81702ef8**
 ## POOLV3_START_BURN
 Opcode : **0x530b5f2c** 
 
-
+Burn whole or part of nft. Can be called by anyone, but if not called be the owner - would fail later. This operation would compute the amount of the fees that the position is eligible to get andforwards a message to the NFT contract
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
-| burned_index | Uint(64)  |  | 
-| liquidity2Burn | Uint(128) |  | 
-| tickLower | Int(24)   |  | 
-| tickUpper | Int(24)   |  | 
+| burned_index | Uint(64)  | Index if the NFT to burn | 
+| liquidity2Burn | Uint(128) | Amount of the liquidity to burn, 0 is a valid amount, in this case only collected fees would be returned | 
+| tickLower | Int(24)   | Lower tick of the NFT. Should match the real one | 
+| tickUpper | Int(24)   | Upper tick of the NFT. Should match the real one | 
 
 ## POOLV3_BURN
 Opcode : **0xd73ac09d** 
 
-
+Burn whole or part of nft. Is sent by NFT itself, would only be accepted from the NFT itself
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
-| recipient | Address() |  | 
-| burned_index | Uint(64)  |  | 
-| liquidity | Uint(128) |  | 
-| tickLower | Int(24)   |  | 
-| tickUpper | Int(24)   |  | 
-| liquidity2Burn | Uint(128) |  | 
+| recipient | Address() | NFT owner to receive funds | 
+| burned_index | Uint(64)  | Index if the NFT to burn. Should match the sender address | 
+| liquidity | Uint(128) | NFT liquidity amount prior to burn | 
+| tickLower | Int(24)   | Lower tick of the NFT. Sanitized by NFTPosition  contract | 
+| tickUpper | Int(24)   | Upper tick of the NFT. Sanitized by NFTPosition  contract | 
+| liquidity2Burn | Uint(128) | Amount of the liquidity to burn, 0 is a valid amount, in this case only collected fees would be returned | 
 | feeGrowthInside0LastX128 | Uint(256) |  | 
 | feeGrowthInside1LastX128 | Uint(256) |  | 
 
 ## POOLV3_SWAP
 Opcode : **0xa7fb58f8** 
 
-
+Computes the swap math, and issues a command to the router to send funds. Only would be accessed from the router
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
 | source_wallet | Address() | jetton wallet attached to the router | 
-| amount | Coins()   |  | 
-| sqrtPriceLimitX96 | Uint(160),PriceX96 |  | 
-| minOutAmount | Coins()   |  | 
+| amount | Coins()   | Input amount of the jettons to be swapped | 
+| sqrtPriceLimitX96 | Uint(160),PriceX96 | Limit marginal price. Swap won't go beyond it. | 
+| minOutAmount | Coins()   | Minimum amount of the output jettons to get back. If not reached, your input would be returned to you | 
 | from_real_user | Address()  |  | 
