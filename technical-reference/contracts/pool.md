@@ -320,7 +320,7 @@ Opcode : **0x81702ef8**
 ## POOLV3_START_BURN
 Opcode : **0x530b5f2c** 
 
-Burn whole or part of nft. Can be called by anyone, but if not called be the owner - would fail later. This operation would compute the amount of the fees that the position is eligible to get andforwards a message to the NFT contract
+Burn whole or part of nft. Can be called by anyone, but if not called be the owner - would fail later. This operation would compute the amount of the fees that the position is eligible to get and then forwards a message to the [Position NFT](position_nft.md) contract
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
@@ -334,7 +334,7 @@ Burn whole or part of nft. Can be called by anyone, but if not called be the own
 ## POOLV3_BURN
 Opcode : **0xd73ac09d** 
 
-Burn whole or part of nft. Is sent by NFT itself, would only be accepted from the NFT itself
+Burn whole or part of nft. Is sent by [Position NFT](position_nft.md) itself, would only be accepted from the correct NFT itself
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
@@ -352,7 +352,7 @@ Burn whole or part of nft. Is sent by NFT itself, would only be accepted from th
 ## POOLV3_SWAP
 Opcode : **0xa7fb58f8** 
 
-Computes the swap math, and issues a command to the router to send funds. Only would be accessed from the router
+Computes the swap math, and issues a command to the router to send funds. Only would be accepted from the router
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |

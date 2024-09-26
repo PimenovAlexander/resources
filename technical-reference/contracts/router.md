@@ -90,16 +90,16 @@ Opcode : **0x2e3034ef**
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
-| jetton_wallet0 | Address() |  | 
-| jetton_wallet1 | Address() |  | 
-| tick_spacing | Int(24)   |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
+| jetton_wallet0 | Address() | Address of the jetton0 wallet. Used to compute pool address | 
+| jetton_wallet1 | Address() | Address of the jetton1 wallet. Used to compute pool address | 
+| tick_spacing | Int(24)   | Tick spacing to be used in the pool | 
 | initial_priceX96 | Uint(160),PriceX96 | Initial price for the pool | 
 | nftv3_content | Cell(),Metadata |  | 
 | nftv3item_content | Cell(),Metadata |  | 
-| jetton0_minter | Address() |  | 
-| jetton1_minter | Address() |  | 
-| controller_addr | Address() |  | 
+| jetton0_minter | Address() | Address of the jetton0 minter, used by indexer and frontend | 
+| jetton1_minter | Address() | Address of the jetton1 minter, used by indexer and frontend | 
+| controller_addr | Address() | Address that is allowed to change the fee. Can always be updated by admin | 
 
 ## ROUTERV3_PAY_TO
 Opcode : **0xf93bb43f** 
