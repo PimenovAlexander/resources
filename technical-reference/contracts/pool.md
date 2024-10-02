@@ -95,8 +95,8 @@ Due to the new storage organization and availability of the **dict** data type w
   * @return12 Current price
   * @return13 Current liquidity
 
-  * @return14  poolv3::feeGrowthGlobal0X128,
-  * @return15  poolv3::feeGrowthGlobal1X128,
+  * @return14  poolv3::feeGrowthGlobal0X128
+  * @return15  poolv3::feeGrowthGlobal1X128
   * @return16 Amount of jetton0 fee collected for protocol owners
   * @return17 Amount of jetton0 fee collected for protocol owners
 
@@ -119,6 +119,15 @@ Due to the new storage organization and availability of the **dict** data type w
 
   * @return1 code of the account contract
   * @return2 code of the nft position contract  
+ 
+## getAllTickInfos
+ 
+(cell) getAllTickInfos ()
+ 
+ 
+  returns the cell with all the ticks.
+
+  * @return1 cell that contains the dict with all the ticks.
  
 ## getTickInfosFrom
  
@@ -241,8 +250,11 @@ First mandatory operation that fills crucial parameters of the pool
 | admin_addr | Address() | New address of the admin | 
 | has_controller | UInt(1)  | Flag that shows if this message have a new controller address | 
 | controller_addr | Address() | Address that is allowed to change the fee. Can always be updated by admin | 
+| set_spacing | UInt(1)  | Flag that shows if tick_spacing should be set to the pool or ignored | 
 | tick_spacing | Int(24)    | Tick spacing to be used in the pool | 
+| set_price | UInt(1)  | Flag that shows if initial_priceX96 should be set to the pool or ignored | 
 | initial_priceX96 | Uint(160),PriceX96 | Initial price for the pool | 
+| set_active | UInt(1)  | Flag that shows if pool_active should be set to the pool or ignored | 
 | pool_active | UInt(1)  | Flag is we should start the pool as unlocked | 
 | nftv3_content | Cell(),Metadata |  | 
 | nftv3item_content | Cell(),Metadata |  | 
@@ -292,14 +304,14 @@ Opcode : **0x4468de77**
 | --- | --- | --- |
 | op | Uint(32) op |  | 
 | query_id | Uint(64)   | queryid as of the TON documentation | 
-| owner_addr | Address()  |  | 
+| owner_addr | Address()  | Address that would receive the minted NFT, excesses and refunds | 
 | amount0 | Coins()    |  | 
 | amount1 | Coins()    |  | 
 | enough0 | Coins()    |  | 
 | enough1 | Coins()    |  | 
-| liquidity | Uint(128)  |  | 
-| tickLower | Int(24)    |  | 
-| tickUpper | Int(24)    |  | 
+| liquidity | Uint(128)  | Amount of liquidity to mint | 
+| tickLower | Int(24)    | lower bound of the range in which to mint | 
+| tickUpper | Int(24)    | upper bound of the range in which to mint | 
 
 ## POOLV3_MINT
 Opcode : **0x81702ef8** 

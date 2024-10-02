@@ -85,7 +85,7 @@ the pool and the message sent to it would fail. So if the message reaches the po
 ## ROUTERV3_CREATE_POOL
 Opcode : **0x2e3034ef** 
 
-Operation that deploys and inits new pool contract for two given jettons identified by their wallets. New pool can reorder the jettons to match the invariant `slice_hash(jetton0_address) > slice_hash(jetton1_address).`
+Operation that deploys and inits new [Pool](pool.md) contract for two given jettons identified by their wallets. New pool would reorder the jettons to match the invariant `slice_hash(jetton0_address) > slice_hash(jetton1_address).`
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
