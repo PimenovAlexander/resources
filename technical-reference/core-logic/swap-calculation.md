@@ -6,7 +6,7 @@ icon: shuffle
 
 ### AMM Base
 
-Algebra AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV2). The internal state of AMM as a system must always satisfy a given invariant, which, in the case of CPF-AMM looks like this:
+TONCO AMM is based on the same principles as classical CPF-AMM (e.g., UniswapV2). The internal state of AMM as a system must always satisfy a given invariant, which, in the case of CPF-AMM looks like this:
 
 $$X \cdot Y = K$$
 
@@ -20,7 +20,7 @@ $$\sqrt P$$ is the root of the current price of jetton0 relative to jetton1. In 
 
 $$L$$ is [liquidity](liquidity-and-positions.md)
 
-At each point in time, the state of the AMM as a dynamic system is given by these two values. Interactions with AMM Algebras during swaps, adding or removing liquidity change the state of the AMM, affecting these values. Only one of these values changes at any given time, with the change in the price root and liquidity being related by the following formulas:
+At each point in time, the state of the AMM as a dynamic system is described by these two values. Interactions with TONCO AMM during swaps, adding or removing liquidity change the state of the AMM, thus affecting these values. Only one of these values changes at any given time, with the change in the price root and liquidity being related by the following formulas:
 
 $$\Delta \sqrt P = \Delta Y / L$$
 
@@ -28,7 +28,7 @@ $$\Delta ({1 \over \sqrt P}) = \Delta X / L$$
 
 We denote the balance change of jetton0 at the pool as $$X$$, and $$Y$$is the balance change of jetton1 at the pool. Thus, a change in the price root "generates" the movement of jettons in and out of the pool. Swap can be described as a process of "movement" of the price to some value.
 
-However, the peculiarity of AMM Algebra is concentrated liquidity - in the course of price movement liquidity can increase or decrease due to crossing of position boundaries of liquidity providers. For this purpose, [a tick mechanism](ticks.md) is implemented
+However, the peculiarity of TONCO AMM is concentrated liquidity - in the course of price movement liquidity can increase or decrease due to crossing of position boundaries of liquidity providers. For this purpose, [a tick mechanism](ticks.md) is implemented
 
 ### Swap as price movement from tick to tick
 
