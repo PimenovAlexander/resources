@@ -17,7 +17,7 @@ The address of each pool is calculated deterministically by a mechanism using to
   * User account code
 * Actual pool code
 
-Liquidity pools are not intended for direct use by ordinary users. For convenient use of the protocol functionality, users use peripheral contracts that implement additional calculations and security checks. Pool won't accept the majority of the operations from any user, except for the initiation of burn.
+Liquidity pools are not intended for direct use by ordinary users. For convenient use of the protocol functionality, users use peripheral contracts that implement additional calculations and security checks. Pool won't accept the majority of the operations from any user, except for the operation that allows to redeem NFT and get collected fees ([POOL\_START\_BURN](../contracts/pool.md#poolv3\_start\_burn)).
 
 ### Requirements for tokens
 
