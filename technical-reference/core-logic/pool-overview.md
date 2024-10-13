@@ -17,15 +17,15 @@ The address of each pool is calculated deterministically by a mechanism using to
   * User account code
 * Actual pool code
 
-Liquidity pools are not intended for direct use by ordinary users. For convenient use of the protocol functionality, users use peripheral contracts that implement additional calculations and security checks. Pool won't accept the majority of the operations from any user, except for the initiation of burn.
+Liquidity pools are not intended for direct use by ordinary users. For convenient use of the protocol functionality, users use peripheral contracts that implement additional calculations and security checks. Pool won't accept the majority of the operations from any user, except for the operation that allows to redeem NFT and get collected fees ([POOL\_START\_BURN](../contracts/pool.md#poolv3\_start\_burn)).
 
 ### Requirements for tokens
 
 The liquidity pool expects the token to adhere to the TEP-74/89 standard. Additionally, there are the following limitations:
 
-1. The Algebra TONCO does not support tokens that can arbitrarily reduce balances at addresses.
-2. The Algebra TONCO does not guarantee full functionality when using tokens whose total supply exceeds $$2^{120} -1$$(maximum value uint120).
-3. The Algebra TONCO does not guarantee full performance with tokens that have the ability to self-destruct or use upgradeable code.
+1. The TONCO does not support tokens that can arbitrarily reduce balances at addresses.
+2. The TONCO does not guarantee full functionality when using tokens whose total supply exceeds $$2^{120} -1$$(maximum value uint120).
+3. The TONCO does not guarantee full performance with tokens that have the ability to self-destruct or use upgradeable code.
 
 ### Pool Description
 
