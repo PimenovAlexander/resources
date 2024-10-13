@@ -22,7 +22,7 @@ the pool and the message sent to it would fail. So if the message reaches the po
 <tr><th width="70">Index</th><th width="100">Type</th><th width="100">Size (b/r)</th><th width="58">Cell</th><th width="280">Name</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td>1</td><td>uint1</td><td> 1 /  0</td><td>1</td><td>router::is_locked</td><td>Unused - flag that denotes if the router is locked  </tr>
+<tr><td>1</td><td>uint1</td><td> 1 /  0</td><td>1</td><td>router::is_locked</td><td>Unused - flag that denotes should denote the router is locked. Currently unused  </tr>
 <tr><td>2</td><td>addr</td><td> 267 /  0</td><td>1</td><td>router::admin_address</td><td>Admin address. Only this address can create new pools  </tr>
 <tr><td>3</td><td>uint64</td><td> 64 /  0</td><td>1</td><td>router::pool_seqno</td><td>Number of pools created. Used by indexer to ensure that none of pools are skipped  </tr>
 <tr><td>4</td><td>code</td><td> 0 /  1</td><td>1</td><td>router::poolv3_code</td><td>The cell with the code of the pool, that is needed to create a pool contract  </tr>
@@ -102,7 +102,7 @@ Operation that deploys and inits new [Pool](pool.md) contract for two given jett
 | controller_addr | Address() | Address that is allowed to change the fee. Can always be updated by admin | 
 
 ## ROUTERV3_PAY_TO
-Opcode : **0xf93bb43f** 
+Opcode : **0xa1daa96d** 
 
 
 
@@ -112,6 +112,13 @@ Opcode : **0xf93bb43f**
 | query_id | Uint(64)  |  | 
 | owner | Address() |  | 
 | exit_code | Uint(32)  |  | 
+| seqno | Uint(64), Indexer |  | 
+| hasCoinsInfo | Boolean()  |  | 
+| hasIndexerInfo | Boolean()  |  | 
+| amount0 | Coins()   |  | 
+| jetton0_address | Address() |  | 
+| amount1 | Coins()   |  | 
+| jetton1_address | Address() |  | 
 
 ## ROUTERV3_TRANSFER_NOTIFICATION
 Opcode : **0xf189f909** 

@@ -67,7 +67,7 @@ Opcode : **0x3ebe5431**
 | tickMin | Int(24)   |  | 
 | tickMax | Int(24)   |  | 
 
-## ACCOUNTV3_RESET_GAS
+## ACCOUNTV3_RESET_GAS,POOLV3_RESET_GAS,ROUTERV3_RESET_GAS
 Opcode : **0x42a0fb43** 
 
 

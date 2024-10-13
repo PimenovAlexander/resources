@@ -73,7 +73,7 @@ Due to the new storage organization and availability of the **dict** data type w
  
 ## getPoolStateAndConfiguration
  
-(slice, slice,  slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int, int ) getPoolStateAndConfiguration ()
+(slice, slice, slice, slice, slice, slice, slice, int, int, int, int, int, int, int, int, int, int, int, int,  int, int, int, int, int, int  ) getPoolStateAndConfiguration ()
  
   
   Returns pool state and configuration
@@ -112,13 +112,13 @@ Due to the new storage organization and availability of the **dict** data type w
  
 ## getChildContracts
  
-(cell, cell) getChildContracts ()
+(cell, cell, cell, cell) getChildContracts ()
  
  
-  returns code of the child contracts *deprecated*
-
   * @return1 code of the account contract
   * @return2 code of the nft position contract  
+  * @return3 metadata for NFT Collection
+  * @return4 metadata for NFT Item
  
 ## getAllTickInfos
  
@@ -197,11 +197,28 @@ Due to the new storage organization and availability of the **dict** data type w
 (int, int) getSwapEstimate (int zeroForOne, int amount, int sqrtPriceLimitX96)
  
   
+  **Deprecated**
   Computes estimates fot the swap
 
   * @param  zeroForOne
   * @param  amount
   * @param  sqrtPriceLimitX96
+  
+  * @return0 amount of jetton0 that would be put to/get from the pool
+  * @return1 amount of jetton1 that would be put to/get from the pool
+ 
+## getSwapEstimateGas
+ 
+(int, int) getSwapEstimateGas (int zeroForOne, int amount, int sqrtPriceLimitX96,  int minOutAmount, int gasLimit)
+ 
+  
+  Computes estimates for the swap
+
+  * @param  zeroForOne
+  * @param  amount
+  * @param  sqrtPriceLimitX96
+  * @param  minAmountOut
+  * @param  gasLimit   amount of gas (in gas units). If gasLimit is 0 - default value is used - that equals to contract gas limit from config 
   
   * @return0 amount of jetton0 that would be put to/get from the pool
   * @return1 amount of jetton1 that would be put to/get from the pool
@@ -247,9 +264,9 @@ First mandatory operation that fills crucial parameters of the pool
 | op | Uint(32) op |  | 
 | query_id | Uint(64)  | queryid as of the TON documentation | 
 | has_admin | UInt(1)  | Flag that shows if this message have a new admin address | 
-| admin_addr | Address() | New address of the admin | 
+| admin_addr | Address() | New address of the admin. If has_admin is false could be 00b | 
 | has_controller | UInt(1)  | Flag that shows if this message have a new controller address | 
-| controller_addr | Address() | Address that is allowed to change the fee. Can always be updated by admin | 
+| controller_addr | Address() | Address that is allowed to change the fee. Can always be updated by admin. If has_controller is false could be 00b | 
 | set_spacing | UInt(1)  | Flag that shows if tick_spacing should be set to the pool or ignored | 
 | tick_spacing | Int(24)    | Tick spacing to be used in the pool | 
 | set_price | UInt(1)  | Flag that shows if initial_priceX96 should be set to the pool or ignored | 
@@ -258,7 +275,7 @@ First mandatory operation that fills crucial parameters of the pool
 | pool_active | UInt(1)  | Flag is we should start the pool as unlocked | 
 | nftv3_content | Cell(),Metadata |  | 
 | nftv3item_content | Cell(),Metadata |  | 
-| has_minters | UInt(1)  |  | 
+| has_minters | UInt(1)  | Flag that stores if this message has minters | 
 | jetton0_minter | Address() | Address of the jetton0 minter, used by indexer and frontend | 
 | jetton1_minter | Address() | Address of the jetton1 minter, used by indexer and frontend | 
 
