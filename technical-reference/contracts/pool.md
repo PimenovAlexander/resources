@@ -155,7 +155,7 @@ Due to the new storage organization and availability of the **dict** data type w
 (int, int) getCollectedFees (int tickLower, int tickUpper, int posLiquidityDelta, int posFeeGrowthInside0X128, int posFeeGrowthInside1X128)
  
   
-  Predicts how much fees can a position collect
+  Predicts how much fees a position can collect
   
   * @param tickLower
   * @param tickUpper
@@ -181,7 +181,7 @@ Due to the new storage organization and availability of the **dict** data type w
 (int, int, int) getMintEstimate (int tickLower, int tickUpper, int liquidity)
  
   
-  Computes estimates fot the mint
+  Computes estimates for the mint
 
   * @param  tickLower
   * @param  tickUpper
@@ -218,7 +218,7 @@ Due to the new storage organization and availability of the **dict** data type w
   * @param  amount
   * @param  sqrtPriceLimitX96
   * @param  minAmountOut
-  * @param  gasLimit   amount of gas (in gas units). If gasLimit is 0 - default value is used - that equals to contract gas limit from config 
+  * @param  gasLimit   amount of gas (in gas units). If gasLimit is 0 - default value is used - that equals to contract gas limit from the config 
   
   * @return0 amount of jetton0 that would be put to/get from the pool
   * @return1 amount of jetton1 that would be put to/get from the pool
@@ -257,7 +257,7 @@ Due to the new storage organization and availability of the **dict** data type w
 ## POOLV3_INIT
 Opcode : **0x441c39ed** 
 
-First mandatory operation that fills crucial parameters of the pool
+The first mandatory operation that fills crucial parameters of the pool
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |

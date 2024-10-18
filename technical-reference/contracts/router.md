@@ -127,3 +127,22 @@ Opcode : **0xf189f909**
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
+
+## ACCOUNTV3_RESET_GAS,POOLV3_RESET_GAS,ROUTERV3_RESET_GAS
+Opcode : **0x42a0fb43** 
+
+
+
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+
+## ROUTERV3_CHANGE_ADMIN
+Opcode : **0xd4deb03b** 
+
+
+
+| Mnemonic | Type | Description |
+| --- | --- | --- |
+| op | Uint(32) op |  | 
+| new_admin | Address() |  | 
