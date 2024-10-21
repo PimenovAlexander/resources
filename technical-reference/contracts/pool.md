@@ -377,6 +377,8 @@ Burn whole or part of nft. Is sent by [Position NFT](position_nft.md) itself, wo
 | liquidity2Burn | Uint(128) | Amount of the liquidity to burn, 0 is a valid amount, in this case only collected fees would be returned | 
 | feeGrowthInside0LastX128 | Uint(256) |  | 
 | feeGrowthInside1LastX128 | Uint(256) |  | 
+| feeGrowthInside0CurrentX128 | Uint(256),Indexer |  | 
+| feeGrowthInside1CurrentX128 | Uint(256),Indexer |  | 
 
 ## POOLV3_SWAP
 Opcode : **0xa7fb58f8** 

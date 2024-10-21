@@ -83,7 +83,7 @@ Opcode : **0xd5ecca2a**
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
 | user_address | Address() |  | 
 | liquidity | Uint(128) |  | 
 | tickLower | Int(24)   |  | 
@@ -98,12 +98,12 @@ Opcode : **0xd5ecca2a**
 ## POSITIONNFTV3_POSITION_BURN
 Opcode : **0x46ca335a** 
 
-
+Message from the pool that is part of burn process. This message carries new feeGrowthInside?Last values form the pool
 
 | Mnemonic | Type | Description |
 | --- | --- | --- |
 | op | Uint(32) op |  | 
-| query_id | Uint(64)  |  | 
+| query_id | Uint(64)  | queryid as of the TON documentation | 
 | nft_owner | Address() |  | 
 | liquidity2Burn | Uint(128) |  | 
 | tickLower | Int(24)   |  | 
