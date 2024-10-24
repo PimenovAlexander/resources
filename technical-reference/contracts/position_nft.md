@@ -7,10 +7,10 @@
 
 # Description 
 
-    This is a modified NFT contract to store user position. To minimize data, actual content is not stored inside the 
-    contract so far kept empty by the pool. It is appended on the fly with nft values. 
-    Pool then adds all the other fields to form valid metadata.
-v
+This is a modified NFT contract to store user position. To minimize data, actual content is not stored inside the 
+contract so far kept empty by the pool. It is appended on the fly with nft values. 
+Pool then adds all the other fields to form valid metadata.
+
 # Data Storage 
 <table data-full-width="true">
 <thead>
