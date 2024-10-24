@@ -248,7 +248,10 @@ Due to the new storage organization and availability of the **dict** data type w
 (cell) get_nft_content (int index, cell nftv3item_content)
  
   
-  In accordance with TEP-62
+   In accordance with TEP-62 we will form the output NFT onchain metadata
+   
+   If NFTItemContent description field that is passed to the pool by the user (poolv3::nftv3item_content) begins with marker "%N%" - data from the NFT is added to the beginning of the description.
+   If there id no data attached to the dictionary by the NFT, NFTItemContent description is unchanged
 
   * @return0   
  

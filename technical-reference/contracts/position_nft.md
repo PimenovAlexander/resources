@@ -7,8 +7,10 @@
 
 # Description 
 
-;; This is a modified NFT contract to store user position
-
+    This is a modified NFT contract to store user position. To minimize data, actual content is not stored inside the 
+    contract so far kept empty by the pool. It is appended on the fly with nft values. 
+    Pool then adds all the other fields to form valid metadata.
+v
 # Data Storage 
 <table data-full-width="true">
 <thead>
@@ -20,8 +22,8 @@
 <tr><td>3</td><td>addr</td><td> 267 /  0</td><td>1</td><td>positionv3::user_address</td><td>Address of the user ton wallet that currently owns the position  </tr>
 <tr><td>4</td><td>cell</td><td> 0 /  1</td><td>1</td><td>positionv3::content</td><td>NFT metadata that contains image url, name and description packed in standard format  </tr>
 <tr><td>5</td><td>uint128</td><td> 128 /  0</td><td>1</td><td>positionv3::liquidity</td><td>Position liquidity  </tr>
-<tr><td>6</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickLower</td><td>Positioni lower tick number  </tr>
-<tr><td>7</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickUpper</td><td>Positioni upper tick number  </tr>
+<tr><td>6</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickLower</td><td>Position lower tick number  </tr>
+<tr><td>7</td><td>int24</td><td> 24 /  0</td><td>1</td><td>positionv3::tickUpper</td><td>Position upper tick number  </tr>
 <tr><td>8</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>positionv3::feeGrowthInside0LastX128</td><td>Fees collected before the position was opened or updated for jetton0 (in pool terms)  </tr>
 <tr><td>9</td><td>uint256</td><td> 256 /  0</td><td>11</td><td>positionv3::feeGrowthInside1LastX128</td><td>Fees collected before the position was opened or updated for jetton1 (in pool terms)  </tr>
 </tbody>
@@ -72,6 +74,7 @@
  
  
   This function returns data of this Position NFT that is related to NFT as TEP-62
+  It also attaches some values to transfer them to pool
  
 # Messages 
 
